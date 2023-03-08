@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AssetFix</string>
+    <string name="welcomeText1">Digital</string>
+    <string name="welcomeText2">Asset</string>
+    <string name="welcomeText3">Management</string>
+    <string name="welcomeText4">solution</string>
+    <string name="welcomeText5">that</string>
+    <string name="welcomeText6">works</string>
+    <string name="welcomeText7">for</string>
+    <string name="welcomeText8">you</string>
+    <string name="welcomeImageDescription">Welcoming page backgroundimage</string>
+    <string name="get_started">Get Started</string>
 </resources>
