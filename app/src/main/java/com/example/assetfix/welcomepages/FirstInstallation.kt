@@ -1,25 +1,24 @@
-package com.example.assetfix
+package com.example.assetfix.welcomepages
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.ChangeBounds
 import android.widget.Button
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.startActivity
+import com.example.assetfix.R
 
-class MainActivity : AppCompatActivity() {
+class FirstInstallation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.new_installation_page)
         val getStarted: Button = findViewById(R.id.getStarted)
         getStarted.setOnClickListener{
             openFeaturePage()
         }
     }
     private fun openFeaturePage() {
-        val intent = Intent(this,FeaturePage::class.java)
+        val intent = Intent(this, FeaturePage::class.java)
         startActivity(intent)
-        overridePendingTransition(R.anim.slide_to_the_right,R.anim.slide_to_the_left)
+        overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
     }
+
 }
