@@ -12,6 +12,9 @@
         android:theme="@style/Theme.AssetFix"
         tools:targetApi="31">
         <activity
+            android:name=".LogInpage"
+            android:exported="false" />
+        <activity
             android:name=".welcomepages.FirstInstallation"
             android:exported="true">
             <intent-filter>
@@ -23,7 +26,6 @@
         <activity
             android:name=".welcomepages.FeaturePage"
             android:label="Application Features Manual" />
-
     </application>
 
 </manifest>
