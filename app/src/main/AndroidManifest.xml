@@ -15,7 +15,7 @@
             android:name=".LogInpage"
             android:exported="false" />
         <activity
-            android:name=".welcomepages.FirstInstallation"
+            android:name=".mobile.welcomepages.FirstInstallation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".welcomepages.FeaturePage"
+            android:name=".mobile.welcomepages.FeaturePage"
             android:label="Application Features Manual" />
     </application>
 

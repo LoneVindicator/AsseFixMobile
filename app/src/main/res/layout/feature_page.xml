@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/assetFixBlue"
-    tools:context=".welcomepages.FeaturePage">
+    tools:context=".mobile.welcomepages.FeaturePage">
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"

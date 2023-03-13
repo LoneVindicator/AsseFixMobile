@@ -1,4 +1,4 @@
-package com.example.assetfix.welcomepages.auth
+package com.example.assetfix.mobile.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
