@@ -10,4 +10,12 @@
     <string name="welcomeText8">you</string>
     <string name="welcomeImageDescription">Welcoming page backgroundimage</string>
     <string name="get_started">Get Started</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log in</string>
+    <string name="automated_asset_management">Automated Asset Management</string>
+    <string name="feature1_description">AssetFix\'s automated asset management tools simplify asset tracking, reduce downtime and costs, and help you gain insights into the full asset lifecycle.</string>
+    <string name="intuitive_preventive_maintenance_tool">Intuitive Preventive Maintenance Tool</string>
+    <string name="feature2_description">AssetFix\'s preventive maintenance tool helps maintenance professionals prevent asset breakdowns before they happen. The tool alerts you to potential issues, schedules preventive maintenance tasks, and helps you prepare and prevent rather than repair and repent.</string>
+    <string name="comprehensive_inventory_management">Comprehensive Inventory Management</string>
+    <string name="feature3_description">AssetFix\'s inventory management features provide powerful insights to better control costs and ensure that you have sufficient supply in stock. Manage parts quantities and costs easily and make informed purchasing decisions</string>
 </resources>
