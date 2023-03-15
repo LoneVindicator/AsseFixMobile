@@ -12,7 +12,10 @@
         android:theme="@style/Theme.AssetFix"
         tools:targetApi="31">
         <activity
-            android:name=".welcomepages.FirstInstallation"
+            android:name=".LogInpage"
+            android:exported="false" />
+        <activity
+            android:name=".mobile.welcomepages.FirstInstallation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".welcomepages.FeaturePage"
+            android:name=".mobile.welcomepages.FeaturePage"
             android:label="Application Features Manual" />
-
+        <activity
+            android:name=".mobile.auth.LogInpage"
+            android:label="Log In Page" />
+        <activity
+            android:name=".mobile.auth.SignUpPage"
+            android:label="Sign Up Page" />
+        <activity
+            android:name=".mobile.dashboard.Dashboard"
+            android:label="Dashboard" />
     </application>
 
 </manifest>

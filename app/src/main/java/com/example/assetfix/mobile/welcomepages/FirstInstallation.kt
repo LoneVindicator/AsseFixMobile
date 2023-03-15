@@ -1,4 +1,4 @@
-package com.example.assetfix.welcomepages
+package com.example.assetfix.mobile.welcomepages
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
