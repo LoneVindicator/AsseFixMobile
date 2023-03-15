@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.AssetFix" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.AssetFix" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/assetFixBlue</item>
         <item name="colorPrimaryVariant">@color/assetFixBlue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="android:windowTranslucentNavigation">false</item>
 <!--        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>-->
+        <item name="android:hardwareAccelerated">true</item>
     </style>
 <!--    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">-->
 <!--        <item name="cornerFamily">cut</item>-->

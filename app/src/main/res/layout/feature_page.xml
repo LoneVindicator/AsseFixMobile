@@ -178,28 +178,29 @@
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintVertical_bias="0.636">
 
-        <Button
-            android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login"
+            android:layout_width="140dp"
+            app:cornerRadius="100dp"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/log_in"
             android:textColor="@color/black"
-            app:backgroundTint="@color/white" />
+            app:backgroundTint="@color/white"
+            />
 
-        <Button
-            android:id="@+id/signup"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="140dp"
             android:layout_height="60dp"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_margin="10dp"
+            android:id="@+id/signup"
+            app:cornerRadius="100dp"
             android:text="@string/sign_up"
             android:textColor="@color/white"
-            app:backgroundTint="@color/assetFixYellow" />
-        />
+            app:backgroundTint="@color/assetFixYellow"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

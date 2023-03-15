@@ -26,6 +26,15 @@
         <activity
             android:name=".mobile.welcomepages.FeaturePage"
             android:label="Application Features Manual" />
+        <activity
+            android:name=".mobile.auth.LogInpage"
+            android:label="Log In Page" />
+        <activity
+            android:name=".mobile.auth.SignUpPage"
+            android:label="Sign Up Page" />
+        <activity
+            android:name=".mobile.dashboard.Dashboard"
+            android:label="Dashboard" />
     </application>
 
 </manifest>
