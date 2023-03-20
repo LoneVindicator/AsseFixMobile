@@ -144,7 +144,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/password"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/password_edit_text"
