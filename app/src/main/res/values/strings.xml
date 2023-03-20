@@ -19,4 +19,12 @@
     <string name="email">Email</string>
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="password">Password</string>
+    <string name="simple_fast_and_easy_registration">Simple, Fast and Easy Registration</string>
+    <string name="we_are_glad_you_chose_us">We are glad you chose us!</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="organization">Organization</string>
+    <string name="next">Next</string>
+    <string name="do_you_have_an_account">Do you have an account?<u>Log in</u></string>
+    <string name="retype_password">Retype Password</string>
 </resources>
