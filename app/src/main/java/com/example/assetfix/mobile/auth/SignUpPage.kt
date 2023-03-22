@@ -57,12 +57,14 @@ class SignUpPage : AppCompatActivity() {
             mailLayout.setBoxStrokeColor(Color.RED)
             mailLayout.setError("Please enter your Email")
             isAnyFieldEmpty = true
-        }else    if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
-            // If email is invalid, show error message and set outline color to red
+            return
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(mail).matches()) {
             userMail.error = "Please enter a valid email address"
             val emailLayout: TextInputLayout = findViewById(R.id.signUpMail)
             emailLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
-            emailLayout.setBoxStrokeColor(Color.RED)}
+            emailLayout.setBoxStrokeColor(Color.RED)
+            return
+        }
 
         if (phoneNo.isEmpty()) {
             val phoneNumberLayout: TextInputLayout = findViewById(R.id.phoneNo)
@@ -70,6 +72,7 @@ class SignUpPage : AppCompatActivity() {
             phoneNumberLayout.setBoxStrokeColor(Color.RED)
             phoneNumberLayout.setError("Please enter your Phone Number")
             isAnyFieldEmpty = true
+            return
         }
 
         if (organization.isEmpty()) {
@@ -78,6 +81,7 @@ class SignUpPage : AppCompatActivity() {
             organizationLayout.setBoxStrokeColor(Color.RED)
             organizationLayout.setError("Please enter your Organization")
             isAnyFieldEmpty = true
+            return
         }
 
         if (password.isEmpty()) {
@@ -86,11 +90,13 @@ class SignUpPage : AppCompatActivity() {
             passwordLayout.setBoxStrokeColor(Color.RED)
             passwordLayout.setError("Please enter your Password")
             isAnyFieldEmpty = true
+            return
         } else if(password.length<6){
             val passwordLayout: TextInputLayout = findViewById(R.id.password)
             passwordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
             passwordLayout.setBoxStrokeColor(Color.RED)
             passwordLayout.setError("Your password must be 6 characters")
+            return
         }
         if (confirmPassword.isEmpty()) {
             val confirmPasswordLayout: TextInputLayout = findViewById(R.id.re_password)
@@ -98,17 +104,20 @@ class SignUpPage : AppCompatActivity() {
             confirmPasswordLayout.setBoxStrokeColor(Color.RED)
             confirmPasswordLayout.setError("Please confirm your Password")
             isAnyFieldEmpty = true
+            return
         } else if(confirmPassword.length<6){
             val confirmPasswordLayout: TextInputLayout = findViewById(R.id.password)
             confirmPasswordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
             confirmPasswordLayout.setBoxStrokeColor(Color.RED)
             confirmPasswordLayout.setError("Your password must be 6 characters")
+            return
         }
         if (password!=confirmPassword){
             val confirmPasswordLayout: TextInputLayout = findViewById(R.id.re_password)
             confirmPasswordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
             confirmPasswordLayout.setBoxStrokeColor(Color.RED)
             confirmPasswordLayout.setError("Passwords do not match")
+            return
         }
         else{
             val intent = Intent(this, Dashboard::class.java)

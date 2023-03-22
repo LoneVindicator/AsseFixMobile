@@ -16,6 +16,12 @@
 <!--        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>-->
         <item name="android:hardwareAccelerated">true</item>
     </style>
+    <style name="Theme.AssetFix.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.AssetFix.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AssetFix.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 <!--    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">-->
 <!--        <item name="cornerFamily">cut</item>-->
 <!--        <item name="cornerSize">5dp</item>-->

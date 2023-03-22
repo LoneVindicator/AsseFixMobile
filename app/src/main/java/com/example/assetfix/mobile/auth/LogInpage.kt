@@ -61,30 +61,19 @@ class LogInpage : AppCompatActivity() {
         val emailLayout: TextInputLayout = findViewById(R.id.email)
         val passwordLayout: TextInputLayout = findViewById(R.id.password)
 
-        if (email.isEmpty() || password.isEmpty()) {
-            // If email and/or password fields are empty, show error message and set outline color to red
-            if (email.isEmpty()) {
-                emailLayout.error = "Please enter your email address"
-                emailLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
-                emailLayout.setBoxStrokeColor(Color.RED)
-            } else {
-                emailLayout.error = null
-                emailLayout.setBoxStrokeColor(Color.BLACK)
-            }
-
-            if (password.isEmpty()) {
-                passwordLayout.error = "Please enter your password"
-                passwordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
-                passwordLayout.setBoxStrokeColor(Color.RED)
-            } else {
-                passwordLayout.error = null
-                passwordLayout.setBoxStrokeColor(Color.BLACK)
-            }
+        if (email.isEmpty()) {
+            emailLayout.error = "Please enter your email address"
+            emailLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
+            emailLayout.setBoxStrokeColor(Color.RED)
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             // If email is invalid, show error message and set outline color to red
             emailLayout.error = "Please enter a valid email address"
             emailLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
             emailLayout.setBoxStrokeColor(Color.RED)
+        } else if (password.isEmpty()) {
+            passwordLayout.error = "Please enter your password"
+            passwordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
+            passwordLayout.setBoxStrokeColor(Color.RED)
         } else if (password.length < 6) {
             // If password is less than 6 characters, show error message and set outline color to red
             passwordLayout.error = "Password must be at least 6 characters"
