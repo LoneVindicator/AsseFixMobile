@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/assetfix_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AssetFix"
@@ -30,7 +30,7 @@
             android:name=".mobile.auth.SignUpPage"
             android:label="Sign Up Page" />
         <activity
-            android:name=".mobile.dashboard.Dashboard"
+            android:name=".mobile.main.MainActivity"
             android:label="Dashboard" />
     </application>
 

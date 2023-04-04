@@ -6,7 +6,7 @@
         android:title="@string/general_settings">
         <menu>
             <item
-                android:id="@+id/home_item"
+                android:id="@+id/side_home_item"
                 android:icon="@drawable/bx_home"
                 android:title="@string/home"
                 android:checkable="true"

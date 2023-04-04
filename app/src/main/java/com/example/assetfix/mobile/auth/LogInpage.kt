@@ -9,7 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assetfix.R
-import com.example.assetfix.mobile.dashboard.Dashboard
+import com.example.assetfix.mobile.main.MainActivity
 import com.example.assetfix.mobile.welcomepages.FeaturePage
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -80,7 +80,7 @@ class LogInpage : AppCompatActivity() {
             passwordLayout.setErrorTextColor(ColorStateList.valueOf(Color.RED))
             passwordLayout.setBoxStrokeColor(Color.RED)
         } else {
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }
