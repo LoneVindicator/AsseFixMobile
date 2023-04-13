@@ -73,7 +73,9 @@
                     android:layout_margin="10dp"
                     android:hint="@string/name"
                     app:errorEnabled="true"
-                    app:flow_horizontalAlign="center">
+                    app:flow_horizontalAlign="center"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bx_user">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/userName_edit_text"
@@ -92,14 +94,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/email"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bxs_envelope">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/signUpMail_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +114,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/phone_number"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bxs_phone">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/phoneNo_edit_text"
@@ -127,7 +133,9 @@
                     android:layout_margin="10dp"
                     android:hint="@string/organization"
                     app:errorEnabled="true"
-                    app:flow_horizontalAlign="center">
+                    app:flow_horizontalAlign="center"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bxs_buildings">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/organization_edit_text"
@@ -145,6 +153,8 @@
                     android:layout_margin="10dp"
                     android:hint="@string/password"
                     app:errorEnabled="true"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bxs_key"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -162,7 +172,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/retype_password"
-                    app:errorEnabled="true">
+                    app:errorEnabled="true"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/bxs_key"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/re_password_edit_text"

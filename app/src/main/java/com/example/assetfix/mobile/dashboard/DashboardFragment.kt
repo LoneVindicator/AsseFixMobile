@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
+import com.example.assetfix.mobile.dashboard.adapter.ItemAdapter
+import com.example.assetfix.mobile.dashboard.data.Datasource
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,7 +33,20 @@ class DashboardFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        // Initialize data.
+        val myDataset = Datasource().loadDashboardCards()
+
+        // Find the RecyclerView
+        val recyclerView: RecyclerView = view.findViewById(R.id.card_recyclerView)
+        recyclerView.adapter = ItemAdapter(this, myDataset)
+
+        // Use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +54,7 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
+
 
     companion object {
         /**

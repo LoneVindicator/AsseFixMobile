@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".mobile.workOrder.WorkOrderFragment">
 
     <ScrollView
@@ -23,22 +24,25 @@
                 tools:layout_editor_absoluteY="0dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userName"
+                    android:id="@+id/issue_summary"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:hint="@string/name">
+                    android:hint="Issue Summary"
+                    app:endIconMode="clear_text">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/userName_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:textSize="18sp" />
+                        android:inputType="text|textMultiLine"
+                        android:textSize="18sp"
+                        android:minHeight="120dp"
+                        android:maxLines="4"
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/signUpMail"

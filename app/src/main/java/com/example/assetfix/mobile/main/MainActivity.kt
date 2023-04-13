@@ -7,8 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
 import com.example.assetfix.mobile.dashboard.DashboardFragment
+import com.example.assetfix.mobile.dashboard.adapter.ItemAdapter
+import com.example.assetfix.mobile.dashboard.data.Datasource
 import com.example.assetfix.mobile.workOrder.WorkOrderFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+
         replaceFragment(DashboardFragment())
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
