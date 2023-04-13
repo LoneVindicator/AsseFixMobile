@@ -7,7 +7,7 @@ import android.util.Patterns
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assetfix.R
-import com.example.assetfix.mobile.dashboard.Dashboard
+import com.example.assetfix.mobile.main.MainActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -120,7 +120,7 @@ class SignUpPage : AppCompatActivity() {
             return
         }
         else{
-            val intent = Intent(this, Dashboard::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }

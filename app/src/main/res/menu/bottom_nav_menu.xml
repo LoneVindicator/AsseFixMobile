@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/assets_item"
+        android:icon="@drawable/bx_home"
+        android:title="@string/home"
+        android:checkable="true"
+        />
+    <item
+        android:id="@+id/work_order_item"
+        android:icon="@drawable/bx_notepad"
+        android:title="@string/work_order"
+        android:checkable="true"
+        />
+    <item
+        android:id="@+id/parts_inventory_item"
+        android:icon="@drawable/bx_wrench"
+        android:title="@string/parts_amp_inventory"
+        android:checkable="true"
+        />
+    <item
+        android:id="@+id/messages_item"
+        android:icon="@drawable/bx_message_square_minus"
+        android:title="@string/messages"
+        android:checkable="true"
+        />
+</menu>

@@ -53,4 +53,10 @@
     <string name="work_order">Work Order</string>
     <string name="parts_amp_inventory"><![CDATA[Parts & Inventory]]></string>
     <string name="assets">Assets</string>
+    <string name="floating_action_bar">Floating Action Bar</string>
+    <string name="searchbar_hint">Search</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="open_work_orders"><b>Open Work Orders</b></string>
+    <string name="number"><b>6</b></string>
 </resources>

@@ -109,7 +109,9 @@
             android:layout_margin="15dp"
             android:hint="@string/email"
             app:flow_horizontalAlign="center"
-            app:errorEnabled="true">
+            app:errorEnabled="true"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/bxs_envelope">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
@@ -132,7 +134,8 @@
             app:passwordToggleEnabled="true"
             app:helperTextEnabled="true"
             app:counterEnabled="true"
-            app:counterMaxLength="8">
+            app:counterMaxLength="8"
+            app:startIconDrawable="@drawable/bxs_key">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text"
