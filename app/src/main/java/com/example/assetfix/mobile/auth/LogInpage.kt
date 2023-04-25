@@ -21,9 +21,6 @@ class LogInpage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_inpage)
         val createAccount = findViewById<TextView>(R.id.createAccount)
-        createAccount.apply {
-            paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        }
         createAccount.setOnClickListener {
             openSignUpPage()
         }

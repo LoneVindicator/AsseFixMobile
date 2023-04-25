@@ -4,7 +4,7 @@
     <string name="welcomeImageDescription">Welcoming page backgroundImage</string>
     <string name="get_started">Get Started</string>
     <string name="sign_up">Sign Up</string>
-    <string name="log_in">Log in</string>
+    <string name="log_in"><b>Log In</b></string>
     <string name="automated_asset_management">Automated Asset Management</string>
     <string name="feature1_description">AssetFix\'s automated asset management tools simplify asset tracking, reduce downtime and costs, and help you gain insights into the full asset lifecycle.</string>
     <string name="intuitive_preventive_maintenance_tool">Intuitive Preventive Maintenance Tool</string>
@@ -13,7 +13,7 @@
     <string name="feature3_description">AssetFix\'s inventory management features provide powerful insights to better control costs and ensure that you have sufficient supply in stock. Manage parts quantities and costs easily and make informed purchasing decisions</string>
     <string name="welcome_to">Welcome to</string>
     <string name="log_in_to_continue">Log In to Continue.</string>
-    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="don_t_have_an_account">Don’t have an account? <u><b>Create an Account</b></u></string>
     <string name="create_an_account">Create an account</string>
     <string name="it_takes_less_than_a_minute">It takes less than a minute</string>
     <string name="email">Email</string>
@@ -59,4 +59,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_work_orders"><b>Open Work Orders</b></string>
     <string name="number"><b>6</b></string>
+    <string name="issue_summary">Issue Summary</string>
+    <string name="assets_location">Assets/Location</string>
+    <string name="select_asset_location">Select Asset/Location</string>
+    <string name="select_project">Select Project</string>
+    <string name="work_order_status">Work Order Status</string>
+    <string name="select_work_order_status">Select work order status</string>
+    <string name="select_priority">Select Priority</string>
+    <string name="select_maintenance_type">Select Maintenance Type</string>
+    <string name="maintenance_type">Maintenance Type</string>
+    <string name="select_date">Select Date</string>
+    <string name="due_date">Due Date</string>
+    <string name="hours">Hours</string>
+    <string name="minutes">Minutes</string>
 </resources>

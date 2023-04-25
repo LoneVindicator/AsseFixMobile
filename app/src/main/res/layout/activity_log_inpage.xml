@@ -12,84 +12,39 @@
         android:id="@+id/navigateBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="15dp"
         android:backgroundTint="@color/white"
+        android:contentDescription="Previous Button"
         android:padding="0dp"
         android:src="@drawable/backbutton"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="120dp"
-        android:text="@string/welcome_to"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/welcome"
+        app:layout_constraintStart_toStartOf="@id/logintext"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/assetFixLogo"
-        android:layout_width="99dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/assetfixnamelogo" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/welcome"
+        android:layout_width="500dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navigateBack"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/login_animation" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/logintext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/log_in_to_continue"
+        android:layout_margin="15dp"
+        android:text="@string/log_in"
+        app:layout_constraintTop_toBottomOf="@id/welcome"
+        app:layout_constraintBottom_toTopOf="@id/inputContainer"
+        app:layout_constraintStart_toStartOf="@id/inputContainer"
+        android:textSize="24sp"
         android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/don_t_have_an_account"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/createAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_an_account"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        android:textSize="17sp"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/it_takes_less_than_a_minute"
-        android:textColor="@color/black"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
+        />
     <LinearLayout
         android:id="@+id/inputContainer"
         android:layout_width="match_parent"
@@ -99,14 +54,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView18">
+        app:layout_constraintTop_toBottomOf="@id/logintext">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:hint="@string/email"
             app:flow_horizontalAlign="center"
             app:errorEnabled="true"
@@ -127,8 +83,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
             android:hint="@string/password"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true"
@@ -147,23 +103,19 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_margin="15dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:padding="10dp"
         android:text="@string/log_in"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/inputContainer"
-        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="@+id/inputContainer"
         app:layout_constraintTop_toBottomOf="@id/inputContainer"
-        app:layout_constraintVertical_bias="0.276"
         android:backgroundTint="@color/assetFixYellow"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -176,5 +128,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logInButton" />
+
+    <TextView
+        android:id="@+id/createAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/don_t_have_an_account"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

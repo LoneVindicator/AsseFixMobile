@@ -22,16 +22,21 @@
         </activity>
         <activity
             android:name=".mobile.welcomepages.FeaturePage"
-            android:label="Application Features Manual" />
+            android:label="Application Features Manual"
+            />
         <activity
             android:name=".mobile.auth.LogInpage"
-            android:label="Log In Page" />
+            android:label="Log In Page"
+            />
         <activity
             android:name=".mobile.auth.SignUpPage"
-            android:label="Sign Up Page" />
+            android:label="Sign Up Page"
+            />
         <activity
             android:name=".mobile.main.MainActivity"
-            android:label="Dashboard" />
+            android:label="Dashboard"
+            android:windowSoftInputMode="adjustNothing"
+            />
     </application>
 
 </manifest>
