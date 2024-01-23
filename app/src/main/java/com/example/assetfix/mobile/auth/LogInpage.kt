@@ -33,7 +33,13 @@ class LogInpage : AppCompatActivity() {
         }
         val logInButton: MaterialButton = findViewById(R.id.logInButton)
         logInButton.setOnClickListener {
-            validateLogIn()
+
+            //Uncomment when implementing Login
+
+//            validateLogIn()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }
 
     }

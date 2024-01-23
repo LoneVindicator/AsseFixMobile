@@ -40,26 +40,29 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.navView)
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.side_home_item -> {
+                R.id.side_menu_home -> {
                     replaceFragment(DashboardFragment())
                 }
-                R.id.messages_item -> {
-                    Toast.makeText(applicationContext, "Clicked Mesages", Toast.LENGTH_SHORT).show()
+                R.id.side_menu_profile -> {
+                    Toast.makeText(applicationContext, "Clicked Profile", Toast.LENGTH_SHORT).show()
                 }
-                R.id.notification_item -> {
-                    Toast.makeText(applicationContext, "Clicked Notifications", Toast.LENGTH_SHORT).show()
+                R.id.side_menu_assets -> {
+                    Toast.makeText(applicationContext, "Clicked Assets", Toast.LENGTH_SHORT).show()
                 }
-                R.id.profile_item -> {
-                    Toast.makeText(applicationContext, "Clicked Profile`", Toast.LENGTH_SHORT).show()
+                R.id.side_menu_parts_and_supplies -> {
+                    Toast.makeText(applicationContext, "Clicked Parts & Supplies", Toast.LENGTH_SHORT).show()
                 }
-                R.id.work_order_item ->{
-                    replaceFragment(WorkOrderFragment())
+                R.id.side_menu_people_and_teams -> {
+                    Toast.makeText(applicationContext, "Clicked Peoples & Teams", Toast.LENGTH_SHORT).show()
                 }
-                R.id.parts_inventory_item ->{
-                    Toast.makeText(applicationContext, "Clicked Parts & Inventory`", Toast.LENGTH_SHORT).show()
+                R.id.side_menu_inspections_and_supervision ->{
+                    Toast.makeText(applicationContext, "Inspections & Supervision", Toast.LENGTH_SHORT).show()
                 }
-                R.id.assets_item ->{
-                    Toast.makeText(applicationContext, "Clicked Assets`", Toast.LENGTH_SHORT).show()
+                R.id.side_menu_vendors_and_customers ->{
+                    Toast.makeText(applicationContext, "Clicked Vendors & Customers", Toast.LENGTH_SHORT).show()
+                }
+                R.id.side_menu_sign_out ->{
+                    Toast.makeText(applicationContext, "Clicked Sign Out", Toast.LENGTH_SHORT).show()
                 }
             }
             // Close the drawer after a menu item is selected

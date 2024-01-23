@@ -59,4 +59,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open_work_orders"><b>Open Work Orders</b></string>
     <string name="number"><b>6</b></string>
+
+
+    <!-- Side Menu -->
+
+    <string name="side_menu_home_title">Home</string>
+    <string name="side_menu_profile_title">Profile</string>
+    <string name="side_menu_parts_and_supplies_title"><![CDATA[Parts & Supplies]]></string>
+    <string name="side_menu_assets_title">Assets</string>
+    <string name="side_menu_people_and_teams_title"><![CDATA[People & Teams]]></string>
+    <string name="side_menu_inspections_and_supervision_title"><![CDATA[Inspections & Supervision]]></string>
+    <string name="side_menu_vendors_and_customers_title"><![CDATA[Vendors & Customers]]></string>
+    <string name="side_menu_sign_out_title">Sign Out</string>
+
+
 </resources>
