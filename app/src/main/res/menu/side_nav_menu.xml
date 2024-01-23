@@ -6,50 +6,55 @@
         android:title="@string/general_settings">
         <menu>
             <item
-                android:id="@+id/side_home_item"
+                android:id="@+id/side_menu_home"
                 android:icon="@drawable/bx_home"
-                android:title="@string/home"
+                android:title="@string/side_menu_home_title"
                 android:checkable="true"
                 />
             <item
-                android:id="@+id/messages_item"
-                android:icon="@drawable/bx_message_square_minus"
-                android:title="@string/messages"
-                android:checkable="true"/>
-            <item
-                android:id="@+id/notification_item"
-                android:icon="@drawable/bx_bell"
-                android:title="@string/notification"
-                android:checkable="true"/>
-            <item
-                android:id="@+id/profile_item"
+                android:id="@+id/side_menu_profile"
                 android:icon="@drawable/bx_user"
-                android:title="@string/profile"
+                android:title="@string/side_menu_profile_title"
                 android:checkable="true"/>
+
         </menu>
     </item>
     <item
         android:id="@+id/inventory_item"
         android:title="@string/inventory">
         <menu>
+
             <item
-                android:id="@+id/work_order_item"
-                android:icon="@drawable/bx_notepad"
-                android:title="@string/work_order"
-                android:checkable="true"
-                />
-            <item
-                android:id="@+id/parts_inventory_item"
+                android:id="@+id/side_menu_parts_and_supplies"
                 android:icon="@drawable/bx_wrench"
-                android:title="@string/parts_amp_inventory"
-                android:checkable="true"
-                />
+                android:title="@string/side_menu_parts_and_supplies_title"
+                android:checkable="true"/>
             <item
-                android:id="@+id/assets_item"
+                android:id="@+id/side_menu_assets"
                 android:icon="@drawable/bxs_briefcase"
-                android:title="@string/assets"
-                android:checkable="true"
-                />
+                android:title="@string/side_menu_assets_title"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/side_menu_people_and_teams"
+                android:icon="@drawable/bx_user"
+                android:title="@string/side_menu_people_and_teams_title"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/side_menu_inspections_and_supervision"
+                android:icon="@drawable/bx_notepad"
+                android:title="@string/side_menu_inspections_and_supervision_title"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/side_menu_vendors_and_customers"
+                android:icon="@drawable/bx_user"
+                android:title="@string/side_menu_vendors_and_customers_title"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/side_menu_sign_out"
+                android:icon="@drawable/bx_bell"
+                android:title="@string/side_menu_sign_out_title"
+                android:checkable="true"/>
+
         </menu>
     </item>
 </menu>

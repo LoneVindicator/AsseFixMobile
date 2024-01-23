@@ -8,14 +8,6 @@
     android:padding="10dp"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_rectangle"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/card_recyclerView"
         android:layout_width="match_parent"
