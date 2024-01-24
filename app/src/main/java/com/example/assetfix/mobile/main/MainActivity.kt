@@ -72,14 +72,24 @@ class MainActivity : AppCompatActivity() {
         }
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.assets_item -> {
+                R.id.bottom_nav_menu_home_item -> {
                     replaceFragment(DashboardFragment())
                     return@setOnItemSelectedListener true
                 }
-                R.id.work_order_item -> {
-                    replaceFragment(WorkOrderFragment())
+                R.id.bottom_nav_menu_work_order_item -> {
+                    replaceFragment(DashboardFragment())
                     return@setOnItemSelectedListener true
                 }
+                R.id.bottom_nav_menu_assets_item -> {
+                    replaceFragment(DashboardFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.bottom_nav_menu_people_and_teams_item -> {
+                    replaceFragment(DashboardFragment())
+                    return@setOnItemSelectedListener true
+                }
+
+
                 // Add other menu item cases as needed
                 else -> return@setOnItemSelectedListener false
             }

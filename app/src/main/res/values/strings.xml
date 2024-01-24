@@ -72,5 +72,12 @@
     <string name="side_menu_vendors_and_customers_title"><![CDATA[Vendors & Customers]]></string>
     <string name="side_menu_sign_out_title">Sign Out</string>
 
+    <!-- Side Menu -->
+
+    <string name="bottom_nav_menu_assets_title">Assets</string>
+    <string name="bottom_nav_menu_people_and_teams_title"><![CDATA[People & Teams]]></string>
+    <string name="bottom_nav_menu_home_text">Home</string>
+    <string name="bottom_nav_menu_work_order_title">Work Order</string>
+
 
 </resources>
