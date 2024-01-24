@@ -62,7 +62,6 @@
 
 
     <!-- Side Menu -->
-
     <string name="side_menu_home_title">Home</string>
     <string name="side_menu_profile_title">Profile</string>
     <string name="side_menu_parts_and_supplies_title"><![CDATA[Parts & Supplies]]></string>
@@ -71,6 +70,36 @@
     <string name="side_menu_inspections_and_supervision_title"><![CDATA[Inspections & Supervision]]></string>
     <string name="side_menu_vendors_and_customers_title"><![CDATA[Vendors & Customers]]></string>
     <string name="side_menu_sign_out_title">Sign Out</string>
+
+    <!-- Side Menu -->
+    <string name="bottom_nav_menu_assets_title">Assets</string>
+    <string name="bottom_nav_menu_people_and_teams_title"><![CDATA[People & Teams]]></string>
+    <string name="bottom_nav_menu_home_text">Home</string>
+    <string name="bottom_nav_menu_work_order_title">Work Order</string>
+
+    <!-- Active Work Orders Card -->
+    <string name="active_work_orders_title">Active Work Orders</string>
+    <string name="active_work_orders_content">5000</string>
+    <string name="active_assets_title">Active Assets</string>
+    <string name="active_assets_content">300</string>
+    <string name="active_users_content">13</string>
+    <string name="active_users_title">Active Users</string>
+    <string name="active_work_order_number_content">743279</string>
+    <string name="recent_work_order_number_content">743279</string>
+    <string name="recent_work_orders_title">Recent Work Orders</string>
+    <string name="recent_work_order_number_title">"Worker Order Number: "</string>
+    <string name="recent_work_order_status_title">"Status: "</string>
+    <string name="recent_work_status_content">In Progress</string>
+    <string name="recent_work_order_priority_title">Priority: </string>
+    <string name="recent_work_priority_content">Medium</string>
+    <string name="recent_work_order_type_title">Type: </string>
+    <string name="recent_work_type_content">Corrective</string>
+    <string name="recent_work_order_asset_title">Asset: </string>
+    <string name="recent_work_asset_content">Backup Generator</string>
+    <string name="recent_work_order_assigned_to_title">"Assigned To: "</string>
+    <string name="recent_work_assigned_to_content">Angelita Carlity Jnr</string>
+    <string name="recent_work_order_due_date_title">Due Date:</string>
+    <string name="recent_work_due_date_content">24/07/24</string>
 
 
 </resources>

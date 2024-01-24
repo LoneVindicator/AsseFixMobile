@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/assets_item"
+        android:id="@+id/bottom_nav_menu_home_item"
         android:icon="@drawable/bx_home"
-        android:title="@string/home"
+        android:title="@string/bottom_nav_menu_home_text"
         android:checkable="true"
         />
     <item
-        android:id="@+id/work_order_item"
+        android:id="@+id/bottom_nav_menu_work_order_item"
         android:icon="@drawable/bx_notepad"
-        android:title="@string/work_order"
+        android:title="@string/bottom_nav_menu_work_order_title"
         android:checkable="true"
         />
     <item
-        android:id="@+id/parts_inventory_item"
-        android:icon="@drawable/bx_wrench"
-        android:title="@string/parts_amp_inventory"
+        android:id="@+id/bottom_nav_menu_assets_item"
+        android:icon="@drawable/bxs_briefcase"
+        android:title="@string/bottom_nav_menu_assets_title"
         android:checkable="true"
         />
     <item
-        android:id="@+id/messages_item"
-        android:icon="@drawable/bx_message_square_minus"
-        android:title="@string/messages"
+        android:id="@+id/bottom_nav_menu_people_and_teams_item"
+        android:icon="@drawable/bx_user"
+        android:title="@string/bottom_nav_menu_people_and_teams_title"
         android:checkable="true"
         />
 </menu>
