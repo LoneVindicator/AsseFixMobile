@@ -36,16 +36,19 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        // <--Card Horizontal Scroll (Deprecated) -->
+
         // Initialize data.
-        val myDataset = Datasource().loadDashboardCards()
-
-        // Find the RecyclerView
-        val recyclerView: RecyclerView = view.findViewById(R.id.card_recyclerView)
-        recyclerView.adapter = ItemAdapter(this, myDataset)
-
-        // Use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true)
+//        val myDataset = Datasource().loadDashboardCards()
+//
+//        // Find the RecyclerView
+//        val recyclerView: RecyclerView = view.findViewById(R.id.card_recyclerView)
+//        recyclerView.adapter = ItemAdapter(this, myDataset)
+//
+//        // Use this setting to improve performance if you know that changes
+//        // in content do not change the layout size of the RecyclerView
+//        recyclerView.setHasFixedSize(true)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

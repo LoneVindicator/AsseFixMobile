@@ -22,10 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        replaceFragment(DashboardFragment())
-
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
+        var toolbarTitle = ""
         setSupportActionBar(toolbar)
+
+        replaceFragment(DashboardFragment(), toolbarTitle)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
@@ -35,13 +36,15 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.background=null
 
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val navView: NavigationView = findViewById(R.id.navView)
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.side_menu_home -> {
-                    replaceFragment(DashboardFragment())
+                    toolbarTitle = "Home"
+                    replaceFragment(DashboardFragment(), toolbarTitle)
                 }
                 R.id.side_menu_profile -> {
                     Toast.makeText(applicationContext, "Clicked Profile", Toast.LENGTH_SHORT).show()
@@ -73,19 +76,25 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.bottom_nav_menu_home_item -> {
-                    replaceFragment(DashboardFragment())
+
+                    toolbarTitle = ""
+                    replaceFragment(DashboardFragment(), toolbarTitle)
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_nav_menu_work_order_item -> {
-                    replaceFragment(DashboardFragment())
+                    toolbarTitle = "Work Order"
+                    replaceFragment(DashboardFragment(), toolbarTitle)
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_nav_menu_assets_item -> {
-                    replaceFragment(DashboardFragment())
+
+                    toolbarTitle = "Assets"
+                    replaceFragment(DashboardFragment(), toolbarTitle)
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_nav_menu_people_and_teams_item -> {
-                    replaceFragment(DashboardFragment())
+                    toolbarTitle = "People & Teams"
+                    replaceFragment(DashboardFragment(), toolbarTitle)
                     return@setOnItemSelectedListener true
                 }
 
@@ -111,11 +120,19 @@ class MainActivity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
     }
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment, toolbarTitle: String){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout, fragment)
         fragmentTransaction.commit()
+
+        //Change Toolbar Title
+
+        changeActivityTitle(toolbarTitle)
+    }
+
+    private fun changeActivityTitle(newTitle: String) {
+        supportActionBar?.title = newTitle
     }
 
 }
