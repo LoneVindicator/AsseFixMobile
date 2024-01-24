@@ -12,7 +12,7 @@
     <color name="navBarWhite">#FBFBFB</color>
 
     <color name="statusCardOrange">#FC9C30</color>
-    <color name="statusCardRed">#56D297</color>
-    <color name="statusCardGreen">#E44848</color>
+    <color name="statusCardRed">#E44848</color>
+    <color name="statusCardGreen">#56D297</color>
 
 </resources>

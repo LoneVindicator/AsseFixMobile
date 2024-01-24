@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.bottom_nav_menu_work_order_item -> {
                     toolbarTitle = "Work Order"
-                    replaceFragment(DashboardFragment(), toolbarTitle)
+                    replaceFragment(WorkOrderFragment(), toolbarTitle)
                     return@setOnItemSelectedListener true
                 }
                 R.id.bottom_nav_menu_assets_item -> {
