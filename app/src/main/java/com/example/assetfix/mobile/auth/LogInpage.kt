@@ -147,10 +147,6 @@ class LogInpage : AppCompatActivity() {
                 val response = apiService.authenticateUser(requestBody)
                 Log.d("APIBS", response.toString())
 
-
-
-
-
                 // Handle the authentication response
                 handleAuthenticationResponse(response)
             } catch (e: Exception) {
@@ -191,6 +187,7 @@ class LogInpage : AppCompatActivity() {
 
     data class AuthenticationResponse(
         val access_token: String,
+        val user: Map<String, Any>
 
     )
 
