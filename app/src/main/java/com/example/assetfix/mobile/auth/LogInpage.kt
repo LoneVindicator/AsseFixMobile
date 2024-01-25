@@ -133,6 +133,7 @@ class LogInpage : AppCompatActivity() {
 
     private fun authenticateLogin(email: String, password: String) {
 
+        //Todo: Implement cases for when email/password combinations are incorrect (Check with Dennis regarding the API)
 
         // Create authentication request body
         val requestBody = AuthenticationRequestBody(email, password)
