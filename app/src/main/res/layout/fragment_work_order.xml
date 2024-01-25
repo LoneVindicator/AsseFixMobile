@@ -4,16 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".mobile.workOrder.WorkOrderFragment">
+    tools:context=".mobile.workOrder.WorkOrderFragment"
+    android:padding="16dp"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Work order page">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/bx_notepad"
+                android:tint="@color/textLabelGrey">
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+                <TextView
+                    android:id="@+id/empty_work_orders_title_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/empty_work_orders_title"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/empty_work_orders_byline_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/empty_work_orders_byline"
+                    android:textColor="@color/textLabelGrey"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/empty_work_order_new_work_order_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:drawableLeft="@drawable/bx_bell"
+                android:gravity="center"
+                android:text="New Work Order"
+                android:textColor="@color/assetFixBlue"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 
 </LinearLayout>
+
+
+

@@ -100,6 +100,12 @@
     <string name="recent_work_assigned_to_content">Angelita Carlity Jnr</string>
     <string name="recent_work_order_due_date_title">Due Date:</string>
     <string name="recent_work_due_date_content">24/07/24</string>
+    <string name="empty_work_orders_title">You don\'t have any work orders</string>
+    <string name="empty_work_orders_byline">Get started by adding a new work order</string>
+
+    <!-- Active Work Orders Page -->
+
+
 
 
 </resources>
