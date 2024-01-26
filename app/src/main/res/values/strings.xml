@@ -100,6 +100,10 @@
     <string name="recent_work_assigned_to_content">Angelita Carlity Jnr</string>
     <string name="recent_work_order_due_date_title">Due Date:</string>
     <string name="recent_work_due_date_content">24/07/24</string>
+
+    <!-- Empty Page -->
+
+
     <string name="empty_work_orders_title">You don\'t have any work orders</string>
     <string name="empty_work_orders_byline">Get started by adding a new work order</string>
     <string name="empty_assets_title">You don\'t have any assets</string>
@@ -113,7 +117,24 @@
     <string name="empty_vendorsandcustomers_title">You don\'t have any people</string>
     <string name="empty_vendorsandcustomers_byline">Get started by adding new people</string>
 
-    <!-- Active Work Orders Page -->
-
+    <!-- Work Order Details Form -->
+    <string name="issue_summary_title">Issue Summary</string>
+    <string name="issue_summary_content">Work complete but had a slight delay of 2 weeks</string>
+    <string name="asset_location_title">Asset/Location</string>
+    <string name="project_content">No project selected</string>
+    <string name="work_order_status_title">Work order status</string>
+    <string name="work_order_status_content">In Progress</string>
+    <string name="maintenance_type_title">Maintenance Type</string>
+    <string name="maintenance_type_content">Corrective</string>
+    <string name="priority_title">priority_title</string>
+    <string name="estimated_time_title">Estimated Time</string>
+    <string name="estimated_time_content">43hrs 11min</string>
+    <string name="assigned_to_title">Assigned To</string>
+    <string name="tasks_title">Tasks</string>
+    <string name="tasks_content">--</string>
+    <string name="files_title">Files</string>
+    <string name="files_content">"No Files Uploaded "</string>
+    <string name="asset_location_content">Identigate HQ</string>
+    <string name="project_title">Project</string>
 
 </resources>

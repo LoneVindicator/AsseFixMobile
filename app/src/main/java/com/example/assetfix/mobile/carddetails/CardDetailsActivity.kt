@@ -16,6 +16,7 @@ import com.example.assetfix.mobile.partsandsupplies.PartsAndSuppliesFragment
 import com.example.assetfix.mobile.peopleandteams.PeopleAndTeamsFragment
 import com.example.assetfix.mobile.profile.ProfileFragment
 import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersFragment
+import com.example.assetfix.mobile.workOrder.WorkOrderDetailsFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -28,10 +29,10 @@ class CardDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card_details)
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
-        var toolbarTitle = ""
+        var toolbarTitle = "Work Order #743279"
         setSupportActionBar(toolbar)
 
-        replaceFragment(DashboardFragment(), toolbarTitle)
+        replaceFragment(WorkOrderDetailsFragment(), toolbarTitle)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
