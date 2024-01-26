@@ -100,6 +100,22 @@
     <string name="recent_work_assigned_to_content">Angelita Carlity Jnr</string>
     <string name="recent_work_order_due_date_title">Due Date:</string>
     <string name="recent_work_due_date_content">24/07/24</string>
+    <string name="empty_work_orders_title">You don\'t have any work orders</string>
+    <string name="empty_work_orders_byline">Get started by adding a new work order</string>
+    <string name="empty_assets_title">You don\'t have any assets</string>
+    <string name="empty_assets_byline">Get started by added a new asset</string>
+    <string name="empty_partsandsupplies_title">You don\'t have any parts</string>
+    <string name="empty_partsandsupplies_byline">Get started by added a new part</string>
+    <string name="empty_peopleandteams_title">You don\'t have any users</string>
+    <string name="empty_peopleandusers_byline">Get started by inviting a new user</string>
+    <string name="empty_inspectionsandsupervision_title">You don\'t have any reports</string>
+    <string name="empty_inspectionsandsupervision_byline">Get started by adding a new report</string>
+    <string name="empty_vendorsandcustomers_title">You don\'t have any people</string>
+    <string name="empty_vendorsandcustomers_byline">Get started by adding new people</string>
+
+    <!-- Active Work Orders Page -->
+
+
 
 
 </resources>

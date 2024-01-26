@@ -15,4 +15,8 @@
     <color name="statusCardRed">#E44848</color>
     <color name="statusCardGreen">#56D297</color>
 
+    <color name="textLabelGrey">#818793</color>
+
+
+
 </resources>
