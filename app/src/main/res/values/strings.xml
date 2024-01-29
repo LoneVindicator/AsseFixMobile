@@ -117,7 +117,7 @@
     <string name="empty_vendorsandcustomers_title">You don\'t have any people</string>
     <string name="empty_vendorsandcustomers_byline">Get started by adding new people</string>
 
-    <!-- Work Order Details Form -->
+    <!-- Work Order Details Page -->
     <string name="issue_summary_title">Issue Summary</string>
     <string name="issue_summary_content">Work complete but had a slight delay of 2 weeks</string>
     <string name="asset_location_title">Asset/Location</string>
@@ -136,5 +136,43 @@
     <string name="files_content">"No Files Uploaded "</string>
     <string name="asset_location_content">Identigate HQ</string>
     <string name="project_title">Project</string>
+
+    <!-- Asset Details Page -->
+    <string name="asset_details_name_title">Name</string>
+    <string name="asset_details_name_content">Server HP ProLiant XL</string>
+    <string name="asset_details_preferred_vendor_title">Preferred Vendor</string>
+    <string name="asset_details_preferred_vendor_content">HP Inc</string>
+    <string name="asset_details_other_vendors_title">Other Vendors</string>
+    <string name="asset_details_other_vendors_content">Saruk Digital Solutions</string>
+    <string name="asset_details_location_title">Location</string>
+    <string name="asset_details_location_content">Metrosoft Systems</string>
+    <string name="asset_details_department_title">Department</string>
+    <string name="asset_details_department_content">ICT</string>
+    <string name="asset_details_category_title">Category</string>
+    <string name="asset_details_category_content">Computers</string>
+    <string name="asset_details_sub_category_title">Sub-category</string>
+    <string name="asset_sub_category_content">Servers</string>
+    <string name="asset_details_make_title">Make</string>
+    <string name="asset_details_make_content">HP</string>
+    <string name="asset_details_model_title">Model</string>
+    <string name="asset_details_model_content">ProLiant XL</string>
+    <string name="asset_details_brand_title">Brand</string>
+    <string name="asset_details_brand_content">HP</string>
+    <string name="asset_details_serial_number_title">Serial Number</string>
+    <string name="asset_details_serial_number_content">FFD013012FDS</string>
+    <string name="asset_details_purchase_date_title">Purchase Date</string>
+    <string name="asset_details_purchase_date_content">01/01/2018</string>
+    <string name="asset_details_useful_life_title">Useful Life</string>
+    <string name="asset_details_useful_life_content">5 years</string>
+    <string name="asset_details_purchase_price_title">Purchase Price</string>
+    <string name="asset_details_purchase_price_content">500, 000</string>
+    <string name="asset_details_residual_value_title">Residual Value</string>
+    <string name="asset_details_residual_value_content">180, 000</string>
+    <string name="asset_details_bar_code_title">Bar code</string>
+    <string name="asset_details_bar_code_content">72527273070</string>
+    <string name="asset_details_notes_title">Notes</string>
+    <string name="asset_details_notes_content">--</string>
+    <string name="asset_details_files_title">Files</string>
+    <string name="asset_details_files_content">--</string>
 
 </resources>
