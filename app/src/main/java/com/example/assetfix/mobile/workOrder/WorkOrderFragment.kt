@@ -1,11 +1,15 @@
 package com.example.assetfix.mobile.workOrder
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toolbar
 import com.example.assetfix.R
+import com.example.assetfix.mobile.carddetails.CardDetailsActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +39,36 @@ class WorkOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_work_order, container, false)
+        val view = inflater.inflate(R.layout.fragment_work_order, container, false)
+
+        // Find the button by ID
+        val openNewActivityButton: Button? = view?.findViewById(R.id.empty_work_order_new_work_order_button)
+
+        // Use safe call operator ?. to avoid null pointer exception
+        openNewActivityButton?.setOnClickListener {
+            // Handle button click, open new activity
+
+            openNewActivity()
+        }
+
+
+
+        return view
+
+
+    }
+
+    // Method to open the new activity
+    private fun openNewActivity() {
+        // Create an Intent to start the new activity
+        val intent = Intent(activity, com.example.assetfix.mobile.carddetails.CardDetailsActivity::class.java)
+
+
+        val toolbar: androidx.appcompat.widget.Toolbar? = activity?.findViewById(R.id.toolbar)
+        val toolbarTitle = toolbar?.title?.toString()
+        intent.putExtra("cardDetailsFragmentName", toolbarTitle)
+        startActivity(intent)
+
     }
 
     companion object {

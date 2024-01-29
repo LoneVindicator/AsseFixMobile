@@ -100,6 +100,10 @@
     <string name="recent_work_assigned_to_content">Angelita Carlity Jnr</string>
     <string name="recent_work_order_due_date_title">Due Date:</string>
     <string name="recent_work_due_date_content">24/07/24</string>
+
+    <!-- Empty Page -->
+
+
     <string name="empty_work_orders_title">You don\'t have any work orders</string>
     <string name="empty_work_orders_byline">Get started by adding a new work order</string>
     <string name="empty_assets_title">You don\'t have any assets</string>
@@ -113,9 +117,118 @@
     <string name="empty_vendorsandcustomers_title">You don\'t have any people</string>
     <string name="empty_vendorsandcustomers_byline">Get started by adding new people</string>
 
-    <!-- Active Work Orders Page -->
+    <!-- Work Order Details Page -->
+    <string name="issue_summary_title">Issue Summary</string>
+    <string name="issue_summary_content">Work complete but had a slight delay of 2 weeks</string>
+    <string name="asset_location_title">Asset/Location</string>
+    <string name="project_content">No project selected</string>
+    <string name="work_order_status_title">Work order status</string>
+    <string name="work_order_status_content">In Progress</string>
+    <string name="maintenance_type_title">Maintenance Type</string>
+    <string name="maintenance_type_content">Corrective</string>
+    <string name="priority_title">priority_title</string>
+    <string name="estimated_time_title">Estimated Time</string>
+    <string name="estimated_time_content">43hrs 11min</string>
+    <string name="assigned_to_title">Assigned To</string>
+    <string name="tasks_title">Tasks</string>
+    <string name="tasks_content">--</string>
+    <string name="files_title">Files</string>
+    <string name="files_content">"No Files Uploaded "</string>
+    <string name="asset_location_content">Identigate HQ</string>
+    <string name="project_title">Project</string>
 
-
-
+    <!-- Asset Details Page -->
+    <string name="asset_details_name_title">Name</string>
+    <string name="asset_details_name_content">Server HP ProLiant XL</string>
+    <string name="asset_details_preferred_vendor_title">Preferred Vendor</string>
+    <string name="asset_details_preferred_vendor_content">HP Inc</string>
+    <string name="asset_details_other_vendors_title">Other Vendors</string>
+    <string name="asset_details_other_vendors_content">Saruk Digital Solutions</string>
+    <string name="asset_details_location_title">Location</string>
+    <string name="asset_details_location_content">Metrosoft Systems</string>
+    <string name="asset_details_department_title">Department</string>
+    <string name="asset_details_department_content">ICT</string>
+    <string name="asset_details_category_title">Category</string>
+    <string name="asset_details_category_content">Computers</string>
+    <string name="asset_details_sub_category_title">Sub-category</string>
+    <string name="asset_sub_category_content">Servers</string>
+    <string name="asset_details_make_title">Make</string>
+    <string name="asset_details_make_content">HP</string>
+    <string name="asset_details_model_title">Model</string>
+    <string name="asset_details_model_content">ProLiant XL</string>
+    <string name="asset_details_brand_title">Brand</string>
+    <string name="asset_details_brand_content">HP</string>
+    <string name="asset_details_serial_number_title">Serial Number</string>
+    <string name="asset_details_serial_number_content">FFD013012FDS</string>
+    <string name="asset_details_purchase_date_title">Purchase Date</string>
+    <string name="asset_details_purchase_date_content">01/01/2018</string>
+    <string name="asset_details_useful_life_title">Useful Life</string>
+    <string name="asset_details_useful_life_content">5 years</string>
+    <string name="asset_details_purchase_price_title">Purchase Price</string>
+    <string name="asset_details_purchase_price_content">500, 000</string>
+    <string name="asset_details_residual_value_title">Residual Value</string>
+    <string name="asset_details_residual_value_content">180, 000</string>
+    <string name="asset_details_bar_code_title">Bar code</string>
+    <string name="asset_details_bar_code_content">72527273070</string>
+    <string name="asset_details_notes_title">Notes</string>
+    <string name="asset_details_notes_content">--</string>
+    <string name="asset_details_files_title">Files</string>
+    <string name="asset_details_files_content">--</string>
+    <string name="peopleandteams_details_name_title">Name</string>
+    <string name="peopleandteams_details_name_content">Angelita Cassin Jr.</string>
+    <string name="peopleandteams_details_role_title">Role</string>
+    <string name="peopleandteams_details_role_content">Admin</string>
+    <string name="peopleandteams_details_email_title">Email</string>
+    <string name="peopleandteams_details_email_content">new-admin@test.com</string>
+    <string name="peopleandteams_details_phone_number_title">Phone Number</string>
+    <string name="peopleandteams_details_phone_number_content">+150 426 062 82</string>
+    <string name="peopleandteams_details_verified_at_title">Verified At</string>
+    <string name="peopleandteams_details_verified_at_content">1 year ago</string>
+    <string name="inspectionsandsupervision_details_location_title">Location</string>
+    <string name="inspectionsandsupervision_details_location_content">Hipora Business Solutions E.A Ltd</string>
+    <string name="inspectionsandsupervision_details_report_type_title">Report Type</string>
+    <string name="inspectionsandsupervision_details_report_type_content">Service Inspection</string>
+    <string name="inspectionsandsupervision_details_priority_title">Priority</string>
+    <string name="inspectionsandsupervision_details_priority_content">High</string>
+    <string name="inspectionsandsupervision_details_created_by_title">Created By</string>
+    <string name="inspectionsandsupervision_details_created_by_content">Angelita Cassin Jr.</string>
+    <string name="asset_details_part_information_title">Part Information</string>
+    <string name="partsandsupplies_details_part_information_title">Part Information</string>
+    <string name="partsandsupplies_details_name_title">Name</string>
+    <string name="partsandsupplies_details_name_content">Corsair CX750F RGB Power Supply Supply</string>
+    <string name="partsandsupplies_details_location_title">Location At</string>
+    <string name="partsandsupplies_details_location_content">Hipora Business Solutions E.A Ltd</string>
+    <string name="partsandsupplies_details_aisle_title">Aisle</string>
+    <string name="partsandsupplies_details_aisle_content">13</string>
+    <string name="partsandsupplies_details_row_title">Row</string>
+    <string name="partsandsupplies_details_row_content">5</string>
+    <string name="partsandsupplies_details_bin_title">Bin</string>
+    <string name="partsandsupplies_details_bin_content">32</string>
+    <string name="partsandsupplies_details_make_title">Make</string>
+    <string name="partsandsupplies_details_make_content">Corsair</string>
+    <string name="partsandsupplies_details_model_title">Model</string>
+    <string name="partsandsupplies_details_model_content">CX750F</string>
+    <string name="partsandsupplies_details_brand_title">Brand</string>
+    <string name="partsandsupplies_details_brand_content">Corsair</string>
+    <string name="partsandsupplies_details_bar_code_content">Bar code</string>
+    <string name="partsandsupplies_details_bar_code_title">104729181942</string>
+    <string name="partsandsupplies_details_additional_parts_title">Additional Parts</string>
+    <string name="partsandsupplies_details_additional_parts_content">--</string>
+    <string name="partsandsupplies_details_inventory_details_title">Inventory Details</string>
+    <string name="asset_details_cost_title">Cost (KES)</string>
+    <string name="asset_details_cost_content">180, 000</string>
+    <string name="asset_details_quantity_title">Quantity</string>
+    <string name="asset_details_quantity_content">54</string>
+    <string name="asset_details_minimum_quantity_title">Minimum Quantity</string>
+    <string name="asset_details_quantity_cost_content">12</string>
+    <string name="vendorsandcustomers_details_business_title">Business</string>
+    <string name="vendorsandcustomers_details_business_content">CFAO Motors</string>
+    <string name="vendorsandcustomers_details_business_type_title">Business Type</string>
+    <string name="vendorsandcustomers_details_business_type_content">Service</string>
+    <string name="vendorsandcustomers_details_contact_person_title">Contact Person</string>
+    <string name="vendorsandcustomers_details_contact_person_email_content">hilary@cfao.co.ke</string>
+    <string name="vendorsandcustomers_details_contact_person_phone_content">+254 712 123 456</string>
+    <string name="vendorsandcustomers_details_address_title">Address</string>
+    <string name="vendorsandcustomers_details_address_content">1 year ago</string>
 
 </resources>
