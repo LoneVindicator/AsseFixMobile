@@ -174,5 +174,23 @@
     <string name="asset_details_notes_content">--</string>
     <string name="asset_details_files_title">Files</string>
     <string name="asset_details_files_content">--</string>
+    <string name="peopleandteams_details_name_title">Name</string>
+    <string name="peopleandteams_details_name_content">Angelita Cassin Jr.</string>
+    <string name="peopleandteams_details_role_title">Role</string>
+    <string name="peopleandteams_details_role_content">Admin</string>
+    <string name="peopleandteams_details_email_title">Email</string>
+    <string name="peopleandteams_details_email_content">new-admin@test.com</string>
+    <string name="peopleandteams_details_phone_number_title">Phone Number</string>
+    <string name="peopleandteams_details_phone_number_content">+150 426 062 82</string>
+    <string name="peopleandteams_details_verified_at_title">Verified At</string>
+    <string name="peopleandteams_details_verified_at_content">1 year ago</string>
+    <string name="inspectionsandsupervision_details_location_title">Location</string>
+    <string name="inspectionsandsupervision_details_location_content">Hipora Business Solutions E.A Ltd</string>
+    <string name="inspectionsandsupervision_details_report_type_title">Report Type</string>
+    <string name="inspectionsandsupervision_details_report_type_content">Service Inspection</string>
+    <string name="inspectionsandsupervision_details_priority_title">Priority</string>
+    <string name="inspectionsandsupervision_details_priority_content">High</string>
+    <string name="inspectionsandsupervision_details_created_by_title">Created By</string>
+    <string name="inspectionsandsupervision_details_created_by_content">Angelita Cassin Jr.</string>
 
 </resources>

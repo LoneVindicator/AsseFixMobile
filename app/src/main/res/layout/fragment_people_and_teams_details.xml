@@ -1,14 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mobile.peopleandteams.PeopleAndTeamsDetailsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mobile.peopleandteams.PeopleAndTeamsDetailsFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="People And Teams Detail Fragment" />
+        android:paddingBottom="70dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:layout_marginTop="25dp"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_name_title"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_name_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_role_title"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_role_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_email_title"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_email_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_phone_number_title"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_phone_number_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_verified_at_title"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/peopleandteams_details_verified_at_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:textColor="@color/black"/>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>
