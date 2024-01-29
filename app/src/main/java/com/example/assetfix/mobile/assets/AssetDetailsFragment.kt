@@ -1,4 +1,4 @@
-package com.example.assetfix.mobile.workOrder
+package com.example.assetfix.mobile.assets
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toolbar
+import android.widget.ImageView
 import com.example.assetfix.R
 import com.example.assetfix.mobile.carddetails.CardDetailsActivity
 
@@ -18,10 +18,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [WorkOrderFragment.newInstance] factory method to
+ * Use the [AssetDetailsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WorkOrderFragment : Fragment() {
+class AssetDetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,35 +39,7 @@ class WorkOrderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_work_order, container, false)
-
-        // Find the button by ID
-        val openNewActivityButton: Button? = view?.findViewById(R.id.empty_work_order_new_work_order_button)
-
-        // Use safe call operator ?. to avoid null pointer exception
-        openNewActivityButton?.setOnClickListener {
-            // Handle button click, open new activity
-
-            openNewActivity()
-        }
-
-
-
-        return view
-
-
-    }
-
-    // Method to open the new activity
-    private fun openNewActivity() {
-        // Create an Intent to start the new activity
-        val intent = Intent(activity, com.example.assetfix.mobile.carddetails.CardDetailsActivity::class.java)
-
-
-        val toolbar: androidx.appcompat.widget.Toolbar? = activity?.findViewById(R.id.toolbar)
-        val toolbarTitle = toolbar?.title?.toString()
-        intent.putExtra("cardDetailsFragmentName", toolbarTitle)
-        startActivity(intent)
+        return inflater.inflate(R.layout.fragment_asset_details, container, false)
 
     }
 
@@ -78,16 +50,17 @@ class WorkOrderFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment WorkOrderFragment.
+         * @return A new instance of fragment AssetDetailsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            WorkOrderFragment().apply {
+            AssetDetailsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
+
 }

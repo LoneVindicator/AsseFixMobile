@@ -1,5 +1,6 @@
 package com.example.assetfix.mobile.carddetails
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.Toast
@@ -9,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.assetfix.R
+import com.example.assetfix.mobile.assets.AssetDetailsFragment
 import com.example.assetfix.mobile.assets.AssetsFragment
 import com.example.assetfix.mobile.dashboard.DashboardFragment
 import com.example.assetfix.mobile.inspectionsandsupervision.InspectionsAndSupervisionFragment
@@ -32,7 +34,9 @@ class CardDetailsActivity : AppCompatActivity() {
         var toolbarTitle = "Work Order #743279"
         setSupportActionBar(toolbar)
 
-        replaceFragment(WorkOrderDetailsFragment(), toolbarTitle)
+
+        val selectedFragment = getCardDetailsFragment()
+        replaceFragment(selectedFragment, toolbarTitle)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
@@ -70,6 +74,22 @@ class CardDetailsActivity : AppCompatActivity() {
 
     private fun changeActivityTitle(newTitle: String) {
         supportActionBar?.title = newTitle
+    }
+
+    private fun getCardDetailsFragment(): Fragment {
+
+        val cardDetailsFragmentName = intent.getStringExtra("cardDetailsFragmentName")
+
+        if (cardDetailsFragmentName != null) {
+            Log.d("CardDetailsName", cardDetailsFragmentName)
+        }
+
+        return when (cardDetailsFragmentName) {
+            "Work Order" -> WorkOrderDetailsFragment()
+            "Assets" -> AssetDetailsFragment()
+            else -> WorkOrderDetailsFragment() // Handle the default case
+        }
+
     }
 
 }
