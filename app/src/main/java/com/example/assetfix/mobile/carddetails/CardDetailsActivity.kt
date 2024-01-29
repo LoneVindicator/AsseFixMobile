@@ -13,10 +13,14 @@ import com.example.assetfix.R
 import com.example.assetfix.mobile.assets.AssetDetailsFragment
 import com.example.assetfix.mobile.assets.AssetsFragment
 import com.example.assetfix.mobile.dashboard.DashboardFragment
+import com.example.assetfix.mobile.inspectionsandsupervision.InspectionsAndSupervisionDetailsFragment
 import com.example.assetfix.mobile.inspectionsandsupervision.InspectionsAndSupervisionFragment
+import com.example.assetfix.mobile.partsandsupplies.PartsAndSuppliesDetailsFragment
 import com.example.assetfix.mobile.partsandsupplies.PartsAndSuppliesFragment
+import com.example.assetfix.mobile.peopleandteams.PeopleAndTeamsDetailsFragment
 import com.example.assetfix.mobile.peopleandteams.PeopleAndTeamsFragment
 import com.example.assetfix.mobile.profile.ProfileFragment
+import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersDetailsFragment
 import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderDetailsFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderFragment
@@ -87,6 +91,10 @@ class CardDetailsActivity : AppCompatActivity() {
         return when (cardDetailsFragmentName) {
             "Work Order" -> WorkOrderDetailsFragment()
             "Assets" -> AssetDetailsFragment()
+            "People & Teams" -> PeopleAndTeamsDetailsFragment()
+            "Parts & Supplies" -> PartsAndSuppliesDetailsFragment()
+            "Inspections & Supervision" -> InspectionsAndSupervisionDetailsFragment()
+            "Vendors & Customers" -> VendorsAndCustomersDetailsFragment()
             else -> WorkOrderDetailsFragment() // Handle the default case
         }
 
