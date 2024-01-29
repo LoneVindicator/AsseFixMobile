@@ -35,12 +35,17 @@ class CardDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card_details)
 
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
-        var toolbarTitle = "Work Order #743279"
+        val cardDetailsFragmentName = intent.getStringExtra("cardDetailsFragmentName")
         setSupportActionBar(toolbar)
 
 
         val selectedFragment = getCardDetailsFragment()
-        replaceFragment(selectedFragment, toolbarTitle)
+
+        if (cardDetailsFragmentName != null) {
+            changeActivityTitle(cardDetailsFragmentName)
+        }
+        
+        replaceFragment(selectedFragment)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_Layout)
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
@@ -65,7 +70,7 @@ class CardDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: Fragment, toolbarTitle: String){
+    private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout, fragment)
@@ -73,7 +78,6 @@ class CardDetailsActivity : AppCompatActivity() {
 
         //Change Toolbar Title
 
-        changeActivityTitle(toolbarTitle)
     }
 
     private fun changeActivityTitle(newTitle: String) {
@@ -89,14 +93,38 @@ class CardDetailsActivity : AppCompatActivity() {
         }
 
         return when (cardDetailsFragmentName) {
-            "Work Order" -> WorkOrderDetailsFragment()
-            "Assets" -> AssetDetailsFragment()
-            "People & Teams" -> PeopleAndTeamsDetailsFragment()
-            "Parts & Supplies" -> PartsAndSuppliesDetailsFragment()
-            "Inspections & Supervision" -> InspectionsAndSupervisionDetailsFragment()
-            "Vendors & Customers" -> VendorsAndCustomersDetailsFragment()
-            else -> WorkOrderDetailsFragment() // Handle the default case
+            "Work Order" -> {
+                // Your code for Work Order Details Fragment
+                WorkOrderDetailsFragment()
+            }
+            "Assets" -> {
+                // Your code for Asset Details Fragment
+                AssetDetailsFragment()
+            }
+            "People & Teams" -> {
+                // Your code for People and Teams Details Fragment
+                PeopleAndTeamsDetailsFragment()
+            }
+            "Parts & Supplies" -> {
+                // Your code for Parts and Supplies Details Fragment
+                PartsAndSuppliesDetailsFragment()
+            }
+            "Inspections & Supervision" -> {
+                // Your code for Inspections and Supervision Details Fragment
+                InspectionsAndSupervisionDetailsFragment()
+            }
+            "Vendors & Customers" -> {
+                // Your code for Vendors and Customers Details Fragment
+                VendorsAndCustomersDetailsFragment()
+            }
+            else -> {
+                // Your code for the default case
+                WorkOrderDetailsFragment() // Handle the default case
+            }
         }
+
+
+
 
     }
 
