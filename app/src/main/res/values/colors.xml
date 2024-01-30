@@ -17,6 +17,8 @@
 
     <color name="textLabelGrey">#818793</color>
 
+    <color name="cardBorderGrey">#cdcfd1</color>
+
 
 
 </resources>

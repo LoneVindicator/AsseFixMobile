@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/form_rounded_rectangle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+z
+        <!-- The left 1/10 side with an orange background -->
+        <LinearLayout
+            android:id="@+id/work_order_priority_marker_content"
+            android:layout_width="20dp"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16sp"
+            >
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_number_title"
+                    android:gravity="right"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_number_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_number_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_status_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_status_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_status_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_priority_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_priority_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_priority_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_type_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_type_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_type_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_asset_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_asset_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_asset_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_assigned_to_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_assigned_to_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_assigned_to_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_order_due_date_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_due_date_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/recent_work_due_date_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

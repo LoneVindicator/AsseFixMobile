@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
-import com.example.assetfix.mobile.carddetails.CardDetailsActivity
+import com.example.assetfix.mobile.workOrder.adapter.ItemAdapter
+import com.example.assetfix.mobile.workOrder.data.Datasource
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,10 @@ class WorkOrderFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ItemAdapter // replace MyAdapter with your actual adapter class
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +66,27 @@ class WorkOrderFragment : Fragment() {
         }
 
 
-
         return view
 
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById(R.id.card_recyclerView)
+
+        // Initialize your data list (replace with your actual data)
+        val itemList = Datasource().loadWorkOrderCards()
+
+        // Create an instance of your adapter
+        adapter = ItemAdapter(this, itemList)
+
+        // Set the adapter to the RecyclerView
+        recyclerView.adapter = adapter
+
+        // Set the layout manager (e.g., LinearLayoutManager)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     private fun changeActivityTitle(newTitle: String) {
