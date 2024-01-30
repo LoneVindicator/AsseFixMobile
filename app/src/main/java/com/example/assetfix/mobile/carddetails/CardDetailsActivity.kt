@@ -23,6 +23,7 @@ import com.example.assetfix.mobile.profile.ProfileFragment
 import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersDetailsFragment
 import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderDetailsFragment
+import com.example.assetfix.mobile.workOrder.WorkOrderFormFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -116,6 +117,10 @@ class CardDetailsActivity : AppCompatActivity() {
             "Vendors & Customers" -> {
                 // Your code for Vendors and Customers Details Fragment
                 VendorsAndCustomersDetailsFragment()
+            }
+            "Create Work Order" -> {
+                // Your code for Vendors and Customers Details Fragment
+                WorkOrderFormFragment()
             }
             else -> {
                 // Your code for the default case
