@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import com.example.assetfix.R
 import com.example.assetfix.mobile.carddetails.CardDetailsActivity
 
@@ -43,18 +45,31 @@ class WorkOrderFragment : Fragment() {
 
         // Find the button by ID
         val openNewActivityButton: Button? = view?.findViewById(R.id.empty_work_order_new_work_order_button)
+        val openNewActivityIcon: ImageView? = view?.findViewById(R.id.empty_work_order_new_work_order_icon)
 
-        // Use safe call operator ?. to avoid null pointer exception
         openNewActivityButton?.setOnClickListener {
-            // Handle button click, open new activity
 
             openNewActivity()
+        }
+
+        openNewActivityIcon?.setOnClickListener {
+
+            changeActivityTitle("Create Work Order")
+            openNewActivity()
+
         }
 
 
 
         return view
 
+
+    }
+
+    private fun changeActivityTitle(newTitle: String) {
+
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.title = newTitle
 
     }
 
