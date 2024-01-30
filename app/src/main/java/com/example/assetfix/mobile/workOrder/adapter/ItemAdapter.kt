@@ -48,48 +48,23 @@ class ItemAdapter(
         holder.workOrderAssignedTo.text = item.workOrderAssignedTo
         holder.workOrderDueDate.text = item.workOrderDueDate
 
-        // Change the background color of the priority marker based on workOrderPriority
-        setPriorityMarkerColor(R.id.work_order_priority_marker_content, item.workOrderPriority)
-
-
-        }
-
-    private fun setPriorityMarkerColor(linearLayoutId: Int, priorityValue: String) {
-        val linearLayout = context.view?.findViewById<LinearLayout>(linearLayoutId)
-
-        // Log priority value
-        Log.d("PriorityLog", "Priority value: $priorityValue")
-
-        when (priorityValue.toLowerCase()) {
-            "low" -> {
-                linearLayout?.setBackgroundResource(R.drawable.work_order_card_edge_green)
-                // Log the selected option
-                Log.d("PriorityLog", "Selected option: ${priorityValue.toLowerCase()}")
-            }
-            "medium" -> {
-                linearLayout?.setBackgroundResource(R.drawable.work_order_card_edge_orange)
-                // Log the selected option
-                Log.d("PriorityLog", "Selected option: ${priorityValue.toLowerCase()}")
-            }
-            "high" -> {
-                linearLayout?.setBackgroundResource(R.drawable.work_order_card_edge_red)
-                // Log the selected option
-                Log.d("PriorityLog", "Selected option: ${priorityValue.toLowerCase()}")
-            }
-            else -> {
-                linearLayout?.setBackgroundResource(R.drawable.work_order_card_edge_grey)
-                // Log the selected option
-                Log.d("PriorityLog", "Selected option: ${priorityValue.toLowerCase()}")
-            }
-
+        // Set the background drawable based on workOrderPriority
+        val priorityMarker = holder.itemView.findViewById<LinearLayout>(R.id.work_order_priority_marker_content)
+        val priorityDrawable = getPriorityDrawable(item.workOrderPriority)
+        priorityMarker.setBackgroundResource(priorityDrawable)
 
         }
 
-        // Ensure the view is redrawn
-        linearLayout?.post {
-            linearLayout.invalidate()
+    private fun getPriorityDrawable(priority: String): Int {
+        return when (priority) {
+            "High" -> R.drawable.work_order_card_edge_red
+            "Medium" -> R.drawable.work_order_card_edge_orange
+            "Low" -> R.drawable.work_order_card_edge_green
+            else -> R.drawable.work_order_card_edge_grey
         }
     }
 
 
-}
+
+    }
+

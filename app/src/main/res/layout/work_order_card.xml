@@ -14,7 +14,8 @@ z
         <LinearLayout
             android:id="@+id/work_order_priority_marker_content"
             android:layout_width="20dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/work_order_card_edge_grey">
 
         </LinearLayout>
 
