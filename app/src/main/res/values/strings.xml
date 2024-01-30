@@ -230,5 +230,60 @@
     <string name="vendorsandcustomers_details_contact_person_phone_content">+254 712 123 456</string>
     <string name="vendorsandcustomers_details_address_title">Address</string>
     <string name="vendorsandcustomers_details_address_content">1 year ago</string>
+    <string name="due_date_title">Due Date</string>
+    <string name="save_title">Save</string>
+
+    <string-array name="project_options">
+        <item>-- Select a project --</item>
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
+    <string-array name="asset_location_options">
+        <item>-- Select an asset or location --</item>
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
+    <string-array name="work_order_status_options">
+        <item>-- Select status --</item>
+        <item>Complete</item>
+        <item>Draft</item>
+        <item>In Progress</item>
+        <item>Open</item>
+        <item>Pending Approval</item>
+        <item>Rejected</item>
+
+
+    </string-array>
+
+    <string-array name="maintenance_type_options">
+        <item>-- Select one type --</item>
+        <item>Corrective</item>
+        <item>Damage</item>
+        <item>Inspection</item>
+        <item>Preventative</item>
+        <item>Safety</item>
+        <item>Upgrade</item>
+        <item>Other</item>
+
+
+    </string-array>
+
+    <string-array name="priority_options">
+        <item>-- Select priority --</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="assigned_to_options">
+        <item>-- Choose Assignees --</item>
+        <item>Tom</item>
+        <item>Dick</item>
+        <item>Harry</item>
+    </string-array>
 
 </resources>

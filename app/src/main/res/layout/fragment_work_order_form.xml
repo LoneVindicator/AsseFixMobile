@@ -1,14 +1,413 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mobile.workOrder.WorkOrderFormFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mobile.workOrder.WorkOrderFormFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="create work_order_form" />
+        android:paddingBottom="10dp">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/issue_summary_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <EditText
+                    android:id="@+id/issue_summary_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="10"
+                    android:minLines="3"
+                    android:scrollbars="vertical"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/asset_location_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/asset_location_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/asset_location_options" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/project_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/project_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/project_options" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/work_order_status_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/work_order_status_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/work_order_status_options" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/maintenance_type_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/maintenance_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/maintenance_type_options" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/maintenance_type_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/priority_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/priority_options" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/due_date_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp" />
+
+                <DatePicker
+                    android:id="@+id/datePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:background="@drawable/form_rounded_rectangle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/estimated_time_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp" />
+
+                <TimePicker
+                    android:id="@+id/timePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:background="@drawable/form_rounded_rectangle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/assigned_to_title"
+                    android:textColor="@color/black"
+                    android:paddingLeft="16sp"
+                    android:paddingRight="16sp"
+                    android:paddingBottom="2dp"/>
+
+                <Spinner
+                    android:id="@+id/assigned_to_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16sp"
+                    android:layout_marginRight="16sp"
+                    android:padding="5dp"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:entries="@array/assigned_to_options" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/tasks_title"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_new_tasks_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/form_rounded_rectangle"
+                    android:drawableLeft="@drawable/bx_notepad"
+                    android:gravity="left|center_vertical"
+                    android:text="Add tasks"
+                    android:textColor="@color/assetFixYellow"
+                    android:drawableTint="@color/assetFixYellow"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16sp"
+                android:layout_marginRight="16sp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/files_title"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/upload_files_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/dashed_rounded_rectangle"
+                    android:gravity="center_horizontal"
+                    android:text="Upload files or drag and drop"
+                    android:textColor="@color/assetFixYellow"
+                    android:drawableTint="@color/assetFixYellow"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_margin="15dp"
+                    android:layout_marginTop="72dp"
+                    android:padding="10dp"
+                    android:text="@string/save_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/inputContainer"
+                    app:layout_constraintHorizontal_bias="0.551"
+                    app:layout_constraintStart_toStartOf="@+id/inputContainer"
+                    app:layout_constraintTop_toBottomOf="@id/inputContainer"
+                    app:layout_constraintVertical_bias="0.276"
+                    android:backgroundTint="@color/assetFixYellow"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>
