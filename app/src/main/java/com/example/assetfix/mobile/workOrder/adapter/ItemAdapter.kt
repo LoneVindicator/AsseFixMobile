@@ -72,6 +72,7 @@ class ItemAdapter(
         val toolbar: androidx.appcompat.widget.Toolbar? = (holder.itemView.findViewById(R.id.toolbar) as? androidx.appcompat.widget.Toolbar)
         val toolbarTitle = toolbar?.title?.toString()
         intent.putExtra("cardDetailsFragmentName", toolbarTitle)
+        intent.putExtra("workOrderNumber", holder.workOrderNumber.text)
         context.startActivity(intent)
 
     }

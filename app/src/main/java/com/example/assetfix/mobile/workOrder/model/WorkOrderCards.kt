@@ -4,10 +4,16 @@ import androidx.annotation.StringRes
 
 data class WorkOrderCards(
     val workOrderNumber: String,
-    val workOrderStatus: String,
-    val workOrderPriority: String,
-    val workOrderType: String,
+    val workOrderIssueSummary: String,
     val workOrderAsset: String,
-    val workOrderAssignedTo: String,
+    val workOrderProject: String,
+    val workOrderStatus: String,
+    val workOrderType: String,
+    val workOrderPriority: String,
     val workOrderDueDate: String,
+    val workOrderEstimatedType: String,
+    val workOrderAssignedTo: String,
+    val workOrderTasks: String,
+    val workOrderFiles: String,
     )
+

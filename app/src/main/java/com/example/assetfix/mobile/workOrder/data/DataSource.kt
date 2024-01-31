@@ -2,23 +2,27 @@ package com.example.assetfix.mobile.workOrder.data
 
 import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
 
-class Datasource() {
+class Datasource {
+
+    private val workOrderCardsList: List<WorkOrderCards> = listOf(
+        WorkOrderCards("743279", "Work complete but had a slight delay of 2 weeks", "Identigate HQ", "Kilimani Hills Build", "In Progress", "Corrective", "Low", "19/03/24", "43hrs 11min", "contractor@gmail.com", "--", "No files uploaded"),
+        WorkOrderCards("123456", "Scheduled maintenance for HVAC system", "TechCorp Solutions", "TechCorp Office", "Completed", "Preventive", "Medium", "19/05/12", "22hrs 30min", "maintenance@example.com", "--", "Report.pdf"),
+        WorkOrderCards("789012", "Installation of new network infrastructure", "NetTech Solutions", "DataCenter Project", "Pending", "Installation", "High", "20/01/08", "60hrs 45min", "network@example.com", "192.168.1.1", "NetworkDiagram.png"),
+        WorkOrderCards("456789", "Emergency repair of water leakage", "Plumbing Masters", "Apartment Complex", "Completed", "Corrective", "High", "20/07/19", "10hrs 15min", "plumbing@example.com", "--", "Photos.zip"),
+        WorkOrderCards("234567", "Inspection and testing of fire alarm system", "SafetyTech Services", "Commercial Building", "Scheduled", "Preventive", "Medium", "20/11/30", "8hrs 0min", "safetytech@example.com", "--", "No files uploaded"),
+        WorkOrderCards("890123", "Upgrade servers and improve system performance", "TechGenius Solutions", "IT Department", "In Progress", "Upgrade", "High", "21/03/05", "34hrs 20min", "techgenius@example.com", "--", "ServerLogs.log"),
+        WorkOrderCards("345678", "Landscaping and garden maintenance", "GreenScapes Landscaping", "Residential Area", "Scheduled", "Preventive", "Low", "21/08/15", "15hrs 30min", "greenscapes@example.com", "--", "GardenPlan.pdf"),
+        WorkOrderCards("567890", "Repair and painting of exterior walls", "PaintPros Contractors", "Community Center", "Pending", "Corrective", "Medium", "22/02/10", "25hrs 55min", "paintpros@example.com", "--", "ColorPalette.jpg"),
+        WorkOrderCards("901234", "Installation of security cameras", "SecureTech Solutions", "Retail Store", "Completed", "Installation", "High", "22/07/02", "18hrs 45min", "securitytech@example.com", "192.168.1.10", "SecurityLayout.pdf"),
+        WorkOrderCards("678901", "Roof repair and maintenance", "RoofMaster Services", "Industrial Facility", "Pending", "Corrective", "Medium", "22/12/18", "12hrs 10min", "roofmaster@example.com", "--", "No files uploaded")
+    )
 
     fun loadWorkOrderCards(): List<WorkOrderCards> {
-        return listOf<WorkOrderCards>(
+        return workOrderCardsList
+    }
 
-            WorkOrderCards("743279", "In Progress", "Medium", "Corrective", "Backup Generator", "Juliette Magua", "12/07/19"),
-            WorkOrderCards("125643", "Completed", "High", "Preventive", "HVAC System", "John Doe", "02/15/20"),
-            WorkOrderCards("987654", "Pending", "Low", "Emergency", "Fire Suppression", "Alice Smith", "08/23/21"),
-            WorkOrderCards("456789", "On Hold", "Low", "Inspection", "Elevator", "Bob Johnson", "04/05/22"),
-            WorkOrderCards("789012", "Scheduled", "Low", "Corrective", "Plumbing", "Emily Rodriguez", "09/10/21"),
-            WorkOrderCards("543210", "In Progress", "Medium", "Preventive", "Electrical Panel", "David Lee", "06/18/20"),
-            WorkOrderCards("654321", "Completed", "High", "Emergency", "Roof Repair", "Sophia Chen", "03/29/22"),
-            WorkOrderCards("135792", "Pending", "High", "Inspection", "Security System", "Matthew Turner", "11/12/19"),
-            WorkOrderCards("246813", "On Hold", "Low", "Corrective", "Painting", "Olivia Nguyen", "07/14/20"),
-            WorkOrderCards("112233", "Scheduled", "Medium","Preventive", "Grounds Maintenance", "Daniel Kim", "05/06/21"),
-            WorkOrderCards("445566", "In Progress", "High", "Emergency", "IT Equipment", "Ava Wilson", "10/01/22")
-
-            )
+    // Retrieve a specific WorkOrderCards by work order number
+    fun getWorkOrderCardByNumber(workOrderNumber: String): WorkOrderCards? {
+        return workOrderCardsList.find { it.workOrderNumber == workOrderNumber }
     }
 }
