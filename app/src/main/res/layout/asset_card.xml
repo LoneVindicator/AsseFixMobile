@@ -43,7 +43,7 @@ z
                     />
 
                 <TextView
-                    android:id="@+id/work_order_status_content"
+                    android:id="@+id/asset_name_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceHeadline6"
@@ -78,7 +78,7 @@ z
                     />
 
                 <TextView
-                    android:id="@+id/work_order_priority_content"
+                    android:id="@+id/asset_category_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceHeadline6"
@@ -113,7 +113,7 @@ z
                     />
 
                 <TextView
-                    android:id="@+id/work_order_type_content"
+                    android:id="@+id/asset_location_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceHeadline6"
@@ -148,7 +148,7 @@ z
                     />
 
                 <TextView
-                    android:id="@+id/work_order_asset_content"
+                    android:id="@+id/asset_department_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceHeadline6"
