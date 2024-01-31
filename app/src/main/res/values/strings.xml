@@ -232,6 +232,7 @@
     <string name="vendorsandcustomers_details_address_content">1 year ago</string>
     <string name="due_date_title">Due Date</string>
     <string name="save_title">Save</string>
+    <string name="vendorsandcustomers_details_contact_person_name">Hilary Mbugwa</string>
 
     <string-array name="project_options">
         <item>-- Select a project --</item>
