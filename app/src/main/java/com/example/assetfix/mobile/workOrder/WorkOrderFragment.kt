@@ -53,14 +53,14 @@ class WorkOrderFragment : Fragment() {
 
         // Find the button by ID
         val openNewActivityButton: Button? = view?.findViewById(R.id.empty_work_order_new_work_order_button)
-        val openNewActivityIcon: ImageView? = view?.findViewById(R.id.empty_work_order_new_work_order_icon)
+        val createWorOrderBtn: ImageView? = view?.findViewById(R.id.empty_work_order_new_work_order_icon)
 
         openNewActivityButton?.setOnClickListener {
 
             openNewActivity()
         }
 
-        openNewActivityIcon?.setOnClickListener {
+        createWorOrderBtn?.setOnClickListener {
 
             changeActivityTitle("Create Work Order")
             openNewActivity()

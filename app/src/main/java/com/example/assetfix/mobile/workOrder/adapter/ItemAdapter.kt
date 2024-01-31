@@ -1,5 +1,6 @@
 package com.example.assetfix.mobile.workOrder.adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -53,7 +54,29 @@ class ItemAdapter(
         val priorityDrawable = getPriorityDrawable(item.workOrderPriority)
         priorityMarker.setBackgroundResource(priorityDrawable)
 
+        holder.itemView.setOnClickListener {
+            // Open a new activity when the item is clicked
+
+
+            openNewActivity(holder)
         }
+
+        }
+
+    private fun openNewActivity(holder: ItemViewHolder) {
+        // Create an Intent to start the new activity
+        val context = holder.itemView.context
+        val intent = Intent(context, com.example.assetfix.mobile.carddetails.CardDetailsActivity::class.java)
+
+
+        val toolbar: androidx.appcompat.widget.Toolbar? = (holder.itemView.findViewById(R.id.toolbar) as? androidx.appcompat.widget.Toolbar)
+        val toolbarTitle = toolbar?.title?.toString()
+        intent.putExtra("cardDetailsFragmentName", toolbarTitle)
+        context.startActivity(intent)
+
+    }
+
+
 
     private fun getPriorityDrawable(priority: String): Int {
         return when (priority) {
