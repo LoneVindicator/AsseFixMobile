@@ -1,7 +1,5 @@
 package com.example.assetfix.mobile.workOrder.model
 
-import androidx.annotation.StringRes
-
 data class WorkOrderCards(
     val workOrderNumber: String,
     val workOrderIssueSummary: String,
@@ -25,8 +23,8 @@ data class MaintenanceItem(
     val id: Int,
     val issue_summary: String,
     val assetable: Assetable,
-    val project_id: String,
-    val status_id: String,
+    val project_id: Int,
+    val status_id: Int,
     val maintenance_type_id: Int,
     val priority: String,
     val due_date: String,
@@ -44,7 +42,7 @@ data class Assetable(
     val country: String,
     val latitude: String,
     val longitude: String,
-    val parent_location_id: String,
+    val parent_location_id: Int,
     val uuid: Int,
     val organization_id: Int,
     val is_active: Boolean,
