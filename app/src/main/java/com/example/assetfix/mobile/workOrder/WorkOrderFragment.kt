@@ -90,33 +90,6 @@ class WorkOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView = view.findViewById(com.example.assetfix.R.id.card_recyclerView)
-
-        // Initialize your data list (replace with your actual data)
-        val itemList = Datasource().loadWorkOrderCards()
-
-        // Create an instance of your adapter
-        adapter = ItemAdapter(this, itemList)
-
-        // Set the adapter to the RecyclerView
-        recyclerView.adapter = adapter
-
-        // Set the layout manager (e.g., LinearLayoutManager)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        val emptyLayout: LinearLayout = view.findViewById(com.example.assetfix.R.id.empty_work_order_layout)
-
-        // Check if the RecyclerView data is empty or null
-
-        // Check if the RecyclerView data is empty or null
-                if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
-                    // If empty, make the LinearLayout visible
-                    emptyLayout.visibility = View.VISIBLE
-                } else {
-                    // If not empty, make the LinearLayout gone
-                    emptyLayout.visibility = View.GONE
-                }
-
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -124,7 +97,43 @@ class WorkOrderFragment : Fragment() {
 
         apiService = retrofit.create(ApiService::class.java)
 
-        fetchData()
+        fetchData { workOrderCardList ->
+            // Use workOrderCardList here
+            // This block will be executed when the data is available
+
+            recyclerView = view.findViewById(com.example.assetfix.R.id.card_recyclerView)
+
+            // Initialize your data list (replace with your actual data)
+            val itemList = workOrderCardList
+
+            // Create an instance of your adapter
+            adapter = ItemAdapter(this, itemList)
+
+            // Set the adapter to the RecyclerView
+            recyclerView.adapter = adapter
+
+            // Set the layout manager (e.g., LinearLayoutManager)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+            val emptyLayout: LinearLayout = view.findViewById(com.example.assetfix.R.id.empty_work_order_layout)
+
+            // Check if the RecyclerView data is empty or null
+
+            // Check if the RecyclerView data is empty or null
+            if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
+                // If empty, make the LinearLayout visible
+                emptyLayout.visibility = View.VISIBLE
+            } else {
+                // If not empty, make the LinearLayout gone
+                emptyLayout.visibility = View.GONE
+            }
+
+
+        }
+
+
+
+
     }
 
     private fun changeActivityTitle(newTitle: String) {
@@ -151,7 +160,7 @@ class WorkOrderFragment : Fragment() {
         fun getData(@Header("Authorization") token: String): Call<MaintenanceData>
     }
 
-    private fun fetchData() {
+    private fun fetchData(callback: (List<WorkOrderCards>) -> Unit) {
         val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
 
         val call = apiService.getData("Bearer $accessToken")
@@ -159,20 +168,22 @@ class WorkOrderFragment : Fragment() {
             override fun onResponse(call: Call<MaintenanceData>, response: Response<MaintenanceData>) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    // Process the data as needed
                     logData(data)
+                    val workOrderCardsList = data?.let { mapMaintenanceDataToWorkOrderCards(it) }
+                    if (workOrderCardsList != null) {
+                        callback(workOrderCardsList)
+                    }
                 } else {
-                    // Handle error
                     handleErrorResponse(response)
                 }
             }
 
             override fun onFailure(call: Call<MaintenanceData>, t: Throwable) {
-                // Handle failure
                 Log.e("ApiCall", "API call failed", t)
             }
         })
     }
+
 
     private fun logData(data: MaintenanceData?) {
         if (data != null) {
