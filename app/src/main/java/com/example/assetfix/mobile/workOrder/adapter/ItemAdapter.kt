@@ -80,10 +80,10 @@ class ItemAdapter(
 
 
     private fun getPriorityDrawable(priority: String): Int {
-        return when (priority) {
-            "High" -> R.drawable.work_order_card_edge_red
-            "Medium" -> R.drawable.work_order_card_edge_orange
-            "Low" -> R.drawable.work_order_card_edge_green
+        return when (priority.toUpperCase()) {
+            "HIGH" -> R.drawable.work_order_card_edge_red
+            "MEDIUM" -> R.drawable.work_order_card_edge_orange
+            "LOW" -> R.drawable.work_order_card_edge_green
             else -> R.drawable.work_order_card_edge_grey
         }
     }

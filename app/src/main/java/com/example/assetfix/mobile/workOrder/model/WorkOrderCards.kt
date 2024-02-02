@@ -1,5 +1,10 @@
 package com.example.assetfix.mobile.workOrder.model
 
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 data class WorkOrderCards(
     val workOrderNumber: String,
     val workOrderIssueSummary: String?,
@@ -58,17 +63,49 @@ data class Requestor(
     val organizationId: Int
 )
 
+// Define a function to format the date
+// Define a function to format the date
+fun formatDate(inputDate: String?): String {
+    if (inputDate.isNullOrEmpty()) {
+        return ""
+    }
+
+    val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+    val dateTime = LocalDateTime.parse(inputDate, formatter)
+    val outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+    return dateTime.format(outputFormatter)
+}
+
 fun mapMaintenanceDataToWorkOrderCards(maintenanceData: MaintenanceData): List<WorkOrderCards> {
+    val statusMapping = mapOf(
+        14 to "Complete",
+        12 to "Open",
+        13 to "In Progress",
+        11 to "Draft",
+        15 to "Pending Approval",
+        16 to "Rejected"
+    )
+
+    val maintenanceTypeMapping = mapOf(
+        6 to "Corrective",
+        5 to "Damage",
+        9 to "Inspection",
+        10 to "Other",
+        4 to "Preventative",
+        7 to "Safety",
+        8 to "Upgrade"
+    )
+
     return maintenanceData.data.map {
         WorkOrderCards(
             workOrderNumber = it.id.toString(),
-            workOrderIssueSummary = it.issue_summary?.split("\n").toString()?: "",
+            workOrderIssueSummary = it.issue_summary?.split("\n").toString() ?: "",
             workOrderAsset = it.assetable?.name ?: "",
             workOrderProject = it.project_id.toString(),
-            workOrderStatus = it.status_id.toString(),
-            workOrderType = it.maintenance_type_id.toString(),
+            workOrderStatus = statusMapping[it.status_id] ?: it.status_id.toString(),
+            workOrderType = maintenanceTypeMapping[it.maintenance_type_id] ?: it.maintenance_type_id.toString(),
             workOrderPriority = it.priority,
-            workOrderDueDate = it.due_date ?: "",
+            workOrderDueDate = formatDate(it.due_date ?: ""),
             workOrderEstimatedType = it.estimated_labour_hours.toString(),
             workOrderAssignedTo = it.requestor?.name ?: "",
             workOrderTasks = "",  // You can set appropriate values for these fields
@@ -76,4 +113,5 @@ fun mapMaintenanceDataToWorkOrderCards(maintenanceData: MaintenanceData): List<W
         )
     }
 }
+
 
