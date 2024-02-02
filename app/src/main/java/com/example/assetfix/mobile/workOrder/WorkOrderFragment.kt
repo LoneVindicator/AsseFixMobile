@@ -17,6 +17,8 @@ import com.example.assetfix.R
 import com.example.assetfix.mobile.workOrder.adapter.ItemAdapter
 import com.example.assetfix.mobile.workOrder.data.Datasource
 import com.example.assetfix.mobile.workOrder.model.MaintenanceData
+import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
+import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -175,7 +177,11 @@ class WorkOrderFragment : Fragment() {
     private fun logData(data: MaintenanceData?) {
         if (data != null) {
             // Log the data here
-            Log.d("ApiCall", "Data received: $data")
+            Log.d("ApiCall", data.toString())
+
+            val workOrderCardsList = mapMaintenanceDataToWorkOrderCards(data)
+
+            Log.d("ApiCall", workOrderCardsList.toString())
         } else {
             Log.w("ApiCall", "Data is null")
         }

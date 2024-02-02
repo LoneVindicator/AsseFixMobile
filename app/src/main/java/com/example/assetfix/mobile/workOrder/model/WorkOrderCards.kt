@@ -2,7 +2,7 @@ package com.example.assetfix.mobile.workOrder.model
 
 data class WorkOrderCards(
     val workOrderNumber: String,
-    val workOrderIssueSummary: String,
+    val workOrderIssueSummary: String?,
     val workOrderAsset: String,
     val workOrderProject: String,
     val workOrderStatus: String,
@@ -21,7 +21,7 @@ data class MaintenanceData(
 
 data class MaintenanceItem(
     val id: Int,
-    val issue_summary: String,
+    val issue_summary: String?,
     val assetable: Assetable,
     val project_id: Int,
     val status_id: Int,
@@ -31,8 +31,9 @@ data class MaintenanceItem(
     val estimated_labour_hours: Double,
     val requestor: Requestor,
     val workOrderAssignedTo: String,
+) {
 
-    )
+}
 
 data class Assetable(
     val id: Int,
@@ -56,4 +57,23 @@ data class Requestor(
     val phone_number: String,
     val organizationId: Int
 )
+
+fun mapMaintenanceDataToWorkOrderCards(maintenanceData: MaintenanceData): List<WorkOrderCards> {
+    return maintenanceData.data.map {
+        WorkOrderCards(
+            workOrderNumber = it.id.toString(),
+            workOrderIssueSummary = it.issue_summary?.split("\n").toString()?: "",
+            workOrderAsset = it.assetable?.name ?: "",
+            workOrderProject = it.project_id.toString(),
+            workOrderStatus = it.status_id.toString(),
+            workOrderType = it.maintenance_type_id.toString(),
+            workOrderPriority = it.priority,
+            workOrderDueDate = it.due_date ?: "",
+            workOrderEstimatedType = it.estimated_labour_hours.toString(),
+            workOrderAssignedTo = it.requestor?.name ?: "",
+            workOrderTasks = "",  // You can set appropriate values for these fields
+            workOrderFiles = ""   // based on your requirements
+        )
+    }
+}
 
