@@ -6,7 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.assetfix.R
+import com.example.assetfix.mobile.workOrder.data.Datasource
+import com.example.assetfix.mobile.workOrder.model.MaintenanceData
+import com.example.assetfix.mobile.workOrder.model.MaintenanceItem
+import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +36,17 @@ class WorkOrderDetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val baseUrl = "https://test.assetfix.co/api/"
+
+    private lateinit var datasource: Datasource
+    private lateinit var issueSummaryView: TextView
+
+
+    private val apiService: ApiService = Retrofit.Builder()
+        .baseUrl(baseUrl) // Replace with your actual base URL
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(ApiService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +64,120 @@ class WorkOrderDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_work_order_details, container, false)
 
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        datasource = Datasource()
+
+
+        //TextView Declarations
+
+        val issueSummaryTextView = view.findViewById<TextView>(R.id.work_order_details_issue_summary)
+        val assetLocationTextView = view.findViewById<TextView>(R.id.work_order_details_asset_location_summary)
+        val projectTextView = view.findViewById<TextView>(R.id.work_order_details_project)
+        val workOrderStatusTextView = view.findViewById<TextView>(R.id.work_order_details_work_order_status)
+        val maintenanceTypeTextView = view.findViewById<TextView>(R.id.work_order_details_maintenance_type)
+        val priorityTextView = view.findViewById<TextView>(R.id.work_order_details_priority)
+        val dueDateTextView = view.findViewById<TextView>(R.id.work_order_details_due_date)
+        val estimatedTimeTextView = view.findViewById<TextView>(R.id.work_order_details_estimated_time)
+        val assignedToTextView = view.findViewById<TextView>(R.id.work_order_details_assigned_to)
+        val tasksTextView = view.findViewById<TextView>(R.id.work_order_details_tasks)
+        val filesTextView = view.findViewById<TextView>(R.id.work_order_details_files)
+
+        // Example work order number
+        val workOrderNumberToRetrieve =  requireActivity().intent.getStringExtra("workOrderNumber")
+
+        // Retrieve the specific WorkOrderCards
+        val specificWorkOrder = datasource.getWorkOrderCardByNumber(workOrderNumberToRetrieve!!)
+
+        // Update the TextView with the retrieved details
+        if (specificWorkOrder != null) {
+
+            issueSummaryTextView.text = specificWorkOrder.workOrderIssueSummary ?: ""
+            assetLocationTextView.text = specificWorkOrder.workOrderAsset ?: ""
+            projectTextView.text = specificWorkOrder.workOrderProject ?: ""
+            workOrderStatusTextView.text = specificWorkOrder.workOrderStatus ?: ""
+            maintenanceTypeTextView.text = specificWorkOrder.workOrderType ?: ""
+            priorityTextView.text = specificWorkOrder.workOrderPriority ?: ""
+            dueDateTextView.text = specificWorkOrder.workOrderDueDate ?: ""
+            estimatedTimeTextView.text = specificWorkOrder.workOrderEstimatedType ?: ""
+            assignedToTextView.text = specificWorkOrder.workOrderAssignedTo ?: ""
+            tasksTextView.text = specificWorkOrder.workOrderTasks ?: ""
+            filesTextView.text = specificWorkOrder.workOrderFiles ?: ""
+
+        }
+
+        fetchData(workOrderNumberToRetrieve) { workOrderItem ->
+            // Use workOrderItem here
+            // This block will be executed when the data is available
+
+            if (workOrderItem != null) {
+                // Do something with the MaintenanceItem
+                // For example, map it to WorkOrderCards and use it
+//                val workOrderCards = mapMaintenanceDataToWorkOrderCards(workOrderItem)
+                // Now you can use workOrderCards
+            } else {
+                // Handle the case where workOrderItem is null (error or no data)
+            }
+        }
+
+
+
+    }
+
+    private fun fetchData(workOrderNumber: String, callback: (MaintenanceItem?) -> Unit) {
+        val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
+
+        val call = apiService.getData(workOrderNumber, "Bearer $accessToken")
+        call.enqueue(object : Callback<MaintenanceItem> { // Ensure this line is using MaintenanceItem
+            override fun onResponse(call: Call<MaintenanceItem>, response: Response<MaintenanceItem>) {
+
+
+                if (response.isSuccessful) {
+                    val maintenanceItem: MaintenanceItem? = response.body()
+                    logData(maintenanceItem)
+                    callback(maintenanceItem)
+                } else {
+                    handleErrorResponse(response)
+                }
+            }
+
+            override fun onFailure(call: Call<MaintenanceItem>, t: Throwable) {
+                Log.e("ApiCall", "API call failed", t)
+            }
+        })
+    }
+
+    interface ApiService {
+        // Define the endpoint for fetching a single work order by work order number
+        @GET("work-orders")
+        fun getData(
+            @Query("id") workOrderNumber: String,
+            @Header("Authorization") token: String
+        ): Call<MaintenanceItem> // Ensure this line is using MaintenanceItem
+    }
+
+    private fun logData(data: MaintenanceItem?) {
+        if (data != null) {
+            // Log the data here
+            Log.d("ApiCall", data.toString())
+
+//            val workOrderCardsList = mapMaintenanceDataToWorkOrderCards(data)
+
+//            Log.d("ApiCall", workOrderCardsList.toString())
+        } else {
+            Log.w("ApiCall", "Data is null")
+        }
+    }
+
+    private fun handleErrorResponse(response: Response<MaintenanceItem>) {
+        // Log the error details
+        Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
+        // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
+    }
+
+
 
     companion object {
         /**

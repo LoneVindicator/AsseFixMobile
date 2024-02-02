@@ -1,5 +1,6 @@
-package com.example.assetfix.mobile.dashboard.adapter
+package com.example.assetfix.mobile.workOrder.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,11 +8,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
-import com.example.assetfix.mobile.dashboard.DashboardFragment
+import com.example.assetfix.mobile.assets.AssetsFragment
+import com.example.assetfix.mobile.workOrder.WorkOrderFragment
+import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
 
 class ItemAdapter(
-    private val context: DashboardFragment,
-    private val dataset: List<com.example.assetfix.mobile.dashboard.model.WorkOrderCards>
+    private val context: WorkOrderFragment,
+    private val dataset: List<WorkOrderCards>
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
@@ -51,18 +54,41 @@ class ItemAdapter(
         val priorityDrawable = getPriorityDrawable(item.workOrderPriority)
         priorityMarker.setBackgroundResource(priorityDrawable)
 
+        holder.itemView.setOnClickListener {
+            // Open a new activity when the item is clicked
+
+
+            openNewActivity(holder)
+        }
+
+        }
+
+    private fun openNewActivity(holder: ItemViewHolder) {
+        // Create an Intent to start the new activity
+        val context = holder.itemView.context
+        val intent = Intent(context, com.example.assetfix.mobile.carddetails.CardDetailsActivity::class.java)
+
+
+        val toolbar: androidx.appcompat.widget.Toolbar? = (holder.itemView.findViewById(R.id.toolbar) as? androidx.appcompat.widget.Toolbar)
+        val toolbarTitle = toolbar?.title?.toString()
+        intent.putExtra("cardDetailsFragmentName", toolbarTitle)
+        intent.putExtra("workOrderNumber", holder.workOrderNumber.text)
+        context.startActivity(intent)
+
     }
 
+
+
     private fun getPriorityDrawable(priority: String): Int {
-        return when (priority) {
-            "High" -> R.drawable.work_order_card_edge_red
-            "Medium" -> R.drawable.work_order_card_edge_orange
-            "Low" -> R.drawable.work_order_card_edge_green
+        return when (priority.toUpperCase()) {
+            "HIGH" -> R.drawable.work_order_card_edge_red
+            "MEDIUM" -> R.drawable.work_order_card_edge_orange
+            "LOW" -> R.drawable.work_order_card_edge_green
             else -> R.drawable.work_order_card_edge_grey
         }
     }
 
 
 
-}
+    }
 

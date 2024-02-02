@@ -26,6 +26,9 @@ class DashboardFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ItemAdapter // replace MyAdapter with your actual adapter class
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,19 +39,23 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView = view.findViewById(R.id.card_recyclerView)
 
-        // <--Card Horizontal Scroll (Deprecated) -->
+        // Initialize your data list (replace with your actual data)
+                val itemList = Datasource().loadWorkOrderCards()
 
-        // Initialize data.
-//        val myDataset = Datasource().loadDashboardCards()
-//
-//        // Find the RecyclerView
-//        val recyclerView: RecyclerView = view.findViewById(R.id.card_recyclerView)
-//        recyclerView.adapter = ItemAdapter(this, myDataset)
-//
-//        // Use this setting to improve performance if you know that changes
-//        // in content do not change the layout size of the RecyclerView
-//        recyclerView.setHasFixedSize(true)
+        // Create a sublist containing only the first 5 items
+                val firstFiveItems = itemList.subList(0, minOf(itemList.size, 5))
+
+        // Create an instance of your adapter with the sublist
+                adapter = ItemAdapter(this, firstFiveItems)
+
+        // Set the adapter to the RecyclerView
+                recyclerView.adapter = adapter
+
+        // Set the layout manager (e.g., LinearLayoutManager)
+                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

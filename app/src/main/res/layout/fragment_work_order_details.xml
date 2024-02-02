@@ -44,6 +44,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_issue_summary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/issue_summary_content"
@@ -77,6 +78,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_asset_location_summary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/asset_location_content"
@@ -110,6 +112,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_project"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/project_content"
@@ -143,6 +146,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_work_order_status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/work_order_status_content"
@@ -176,6 +180,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_maintenance_type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/maintenance_type_content"
@@ -209,6 +214,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_priority"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/recent_work_priority_content"
@@ -242,6 +248,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_due_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/recent_work_due_date_content"
@@ -275,6 +282,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_estimated_time"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/estimated_time_content"
@@ -308,6 +316,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_assigned_to"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/recent_work_assigned_to_content"
@@ -341,6 +350,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_tasks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/tasks_content"
@@ -374,6 +384,7 @@
                 android:paddingRight="16sp"/>
 
             <TextView
+                android:id="@+id/work_order_details_files"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/files_content"

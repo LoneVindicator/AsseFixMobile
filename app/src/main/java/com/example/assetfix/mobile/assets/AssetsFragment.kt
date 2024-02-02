@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toolbar
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
-import com.example.assetfix.mobile.carddetails.CardDetailsActivity
+import com.example.assetfix.mobile.assets.adapter.ItemAdapter
+import com.example.assetfix.mobile.assets.data.Datasource
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +28,9 @@ class AssetsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ItemAdapter // replace MyAdapter with your actual adapter class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +62,37 @@ class AssetsFragment : Fragment() {
         return view
 
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        recyclerView = view.findViewById(com.example.assetfix.R.id.card_recyclerView)
+
+        // Initialize your data list (replace with your actual data)
+        val itemList = Datasource().loadAssetCards()
+
+        // Create an instance of your adapter
+        adapter = ItemAdapter(this, itemList)
+
+        // Set the adapter to the RecyclerView
+        recyclerView.adapter = adapter
+
+        // Set the layout manager (e.g., LinearLayoutManager)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val emptyLayout: LinearLayout = view.findViewById(com.example.assetfix.R.id.empty_assets_layout)
+
+        // Check if the RecyclerView data is empty or null
+
+        // Check if the RecyclerView data is empty or null
+        if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
+            // If empty, make the LinearLayout visible
+            emptyLayout.visibility = View.VISIBLE
+        } else {
+            // If not empty, make the LinearLayout gone
+            emptyLayout.visibility = View.GONE
+        }
     }
 
     // Method to open the new activity

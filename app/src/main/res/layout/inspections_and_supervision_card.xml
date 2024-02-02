@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/form_rounded_rectangle">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+z
+        <!-- The left 1/10 side with an orange background -->
+        <LinearLayout
+            android:id="@+id/work_order_priority_marker_content"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/work_order_card_edge_grey">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16sp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_location_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_status_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_location_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_report_type_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_priority_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_report_type_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_priority_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_type_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_priority_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_created_by_title"
+                    android:textSize="11sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    />
+
+                <TextView
+                    android:id="@+id/work_order_assigned_to_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@string/inspectionsandsupervision_details_created_by_content"
+                    android:textSize="12sp"
+                    android:layout_margin="1dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Text & Label END -->
+
+            <!-- Text & Label START -->
+
+
+            <!-- Text & Label END -->
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
