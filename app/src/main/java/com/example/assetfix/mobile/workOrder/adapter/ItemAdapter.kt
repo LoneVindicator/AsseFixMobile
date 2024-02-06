@@ -117,11 +117,4 @@ class ItemAdapter(
 
     }
 
-private fun Intent.putExtra(s: String, workOrderIssueSummary: TextView) {
-
-}
-
-private fun Intent.putExtra(s: String, holder: ItemAdapter.ItemViewHolder) {
-
-}
 

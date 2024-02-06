@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.assetfix.R
 import com.example.assetfix.mobile.workOrder.data.Datasource
 import com.example.assetfix.mobile.workOrder.model.MaintenanceData
@@ -100,6 +101,8 @@ class WorkOrderDetailsFragment : Fragment() {
         Log.d("WorkOrderDetailsFragment", workOrderIssueSummary?:"null")
 
 
+        changeActivityTitle("Work Order #$workOrderNumber")
+
         issueSummaryTextView.text = workOrderIssueSummary ?: "--"
         assetLocationTextView.text = workOrderAsset ?: "--"
         projectTextView.text = workOrderProject ?: "--"
@@ -181,6 +184,13 @@ class WorkOrderDetailsFragment : Fragment() {
         // Log the error details
         Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
         // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
+    }
+
+    private fun changeActivityTitle(newTitle: String) {
+
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.title = newTitle
+
     }
 
 
