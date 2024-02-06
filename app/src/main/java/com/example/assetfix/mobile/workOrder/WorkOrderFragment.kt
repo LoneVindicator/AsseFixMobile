@@ -19,6 +19,8 @@ import com.example.assetfix.mobile.workOrder.data.Datasource
 import com.example.assetfix.mobile.workOrder.model.MaintenanceData
 import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
 import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
+import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,15 +68,17 @@ class WorkOrderFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_work_order, container, false)
 
         // Find the button by ID
-        val openNewActivityButton: Button? = view?.findViewById(R.id.empty_work_order_new_work_order_button)
-        val createWorOrderBtn: ImageView? = view?.findViewById(R.id.empty_work_order_new_work_order_icon)
+        val emptyWorkOrderCreateNewWorkOrderBtn: MaterialButton? = view?.findViewById(R.id.empty_work_order_create_new_work_order_button)
+        val workOrderCreateNewWorkOrderBtn: MaterialButton? = view?.findViewById(R.id.work_order_create_new_work_order_button)
 
-        openNewActivityButton?.setOnClickListener {
+        emptyWorkOrderCreateNewWorkOrderBtn?.setOnClickListener {
 
+            changeActivityTitle("Create Work Order")
             openNewActivity()
+
         }
 
-        createWorOrderBtn?.setOnClickListener {
+        workOrderCreateNewWorkOrderBtn?.setOnClickListener {
 
             changeActivityTitle("Create Work Order")
             openNewActivity()
@@ -170,6 +174,11 @@ class WorkOrderFragment : Fragment() {
             override fun onResponse(call: Call<MaintenanceData>, response: Response<MaintenanceData>) {
                 if (response.isSuccessful) {
                     val data = response.body()
+
+//                    val rawJsonResponse = response.body()?.let { Gson().toJson(it) }
+//                    Log.d("RawResponse", rawJsonResponse ?: "Response body is null")
+
+
                     logData(data)
                     val workOrderCardsList = data?.let { mapMaintenanceDataToWorkOrderCards(it) }
                     if (workOrderCardsList != null) {
