@@ -10,6 +10,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     // References to TextView elements in item_layout.xml
 
     val workOrderNumber: TextView = itemView.findViewById(R.id.work_order_number_content)
+    val workOrderIssueSummary: TextView = itemView.findViewById(R.id.work_order_issue_summary_content)
     val workOrderStatus: TextView = itemView.findViewById(R.id.work_order_status_content)
     val workOrderPriority: TextView = itemView.findViewById(R.id.work_order_priority_content)
     val workOrderType: TextView = itemView.findViewById(R.id.work_order_type_content)

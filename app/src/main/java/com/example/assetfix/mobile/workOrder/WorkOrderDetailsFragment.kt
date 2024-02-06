@@ -86,41 +86,47 @@ class WorkOrderDetailsFragment : Fragment() {
         val filesTextView = view.findViewById<TextView>(R.id.work_order_details_files)
 
         // Example work order number
-        val workOrderNumberToRetrieve =  requireActivity().intent.getStringExtra("workOrderNumber")
+        val workOrderNumber  = requireActivity().intent.getStringExtra("workOrderNumber")
+        val workOrderIssueSummary  = requireActivity().intent.getStringExtra("workOrderIssueSummary")
+        val workOrderAsset  = requireActivity().intent.getStringExtra("workOrderAsset")
+        val workOrderProject  = requireActivity().intent.getStringExtra("workOrderProject")
+        val workOrderStatus  = requireActivity().intent.getStringExtra("workOrderStatus")
+        val workOrderEstimatedTime  = requireActivity().intent.getStringExtra("workOrderEstimatedTime")
+        val workOrderType  = requireActivity().intent.getStringExtra("workOrderType")
+        val workOrderPriority  = requireActivity().intent.getStringExtra("workOrderPriority")
+        val workOrderDueDate  = requireActivity().intent.getStringExtra("workOrderDueDate")
+        val workOrderAssignedTo  = requireActivity().intent.getStringExtra("workOrderAssignedTo")
 
-        // Retrieve the specific WorkOrderCards
-        val specificWorkOrder = datasource.getWorkOrderCardByNumber(workOrderNumberToRetrieve!!)
+        Log.d("WorkOrderDetailsFragment", workOrderIssueSummary?:"null")
 
-        // Update the TextView with the retrieved details
-        if (specificWorkOrder != null) {
 
-            issueSummaryTextView.text = specificWorkOrder.workOrderIssueSummary ?: ""
-            assetLocationTextView.text = specificWorkOrder.workOrderAsset ?: ""
-            projectTextView.text = specificWorkOrder.workOrderProject ?: ""
-            workOrderStatusTextView.text = specificWorkOrder.workOrderStatus ?: ""
-            maintenanceTypeTextView.text = specificWorkOrder.workOrderType ?: ""
-            priorityTextView.text = specificWorkOrder.workOrderPriority ?: ""
-            dueDateTextView.text = specificWorkOrder.workOrderDueDate ?: ""
-            estimatedTimeTextView.text = specificWorkOrder.workOrderEstimatedType ?: ""
-            assignedToTextView.text = specificWorkOrder.workOrderAssignedTo ?: ""
-            tasksTextView.text = specificWorkOrder.workOrderTasks ?: ""
-            filesTextView.text = specificWorkOrder.workOrderFiles ?: ""
+        issueSummaryTextView.text = workOrderIssueSummary ?: "--"
+        assetLocationTextView.text = workOrderAsset ?: "--"
+        projectTextView.text = workOrderProject ?: "--"
+        workOrderStatusTextView.text = workOrderStatus ?: "--"
+        maintenanceTypeTextView.text = workOrderType ?: "--"
+        priorityTextView.text = workOrderPriority ?: "--"
+        dueDateTextView.text = workOrderDueDate ?: "--"
+        estimatedTimeTextView.text = workOrderEstimatedTime ?: "--"
+        assignedToTextView.text = workOrderAssignedTo ?: "--"
+//        tasksTextView.text = specificWorkOrder.workOrderTasks ?: ""
+//        filesTextView.text = specificWorkOrder.workOrderFiles ?: ""
 
-        }
 
-        fetchData(workOrderNumberToRetrieve) { workOrderItem ->
-            // Use workOrderItem here
-            // This block will be executed when the data is available
 
-            if (workOrderItem != null) {
-                // Do something with the MaintenanceItem
-                // For example, map it to WorkOrderCards and use it
-//                val workOrderCards = mapMaintenanceDataToWorkOrderCards(workOrderItem)
-                // Now you can use workOrderCards
-            } else {
-                // Handle the case where workOrderItem is null (error or no data)
-            }
-        }
+//        fetchData(workOrderNumberToRetrieve) { workOrderItem ->
+//            // Use workOrderItem here
+//            // This block will be executed when the data is available
+//
+//            if (workOrderItem != null) {
+//                // Do something with the MaintenanceItem
+//                // For example, map it to WorkOrderCards and use it
+////                val workOrderCards = mapMaintenanceDataToWorkOrderCards(workOrderItem)
+//                // Now you can use workOrderCards
+//            } else {
+//                // Handle the case where workOrderItem is null (error or no data)
+//            }
+//        }
 
 
 

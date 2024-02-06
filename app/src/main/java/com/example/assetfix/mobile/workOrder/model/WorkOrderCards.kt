@@ -99,7 +99,7 @@ fun mapMaintenanceDataToWorkOrderCards(maintenanceData: MaintenanceData): List<W
     return maintenanceData.data.map {
         WorkOrderCards(
             workOrderNumber = it.id.toString(),
-            workOrderIssueSummary = it.issue_summary?.split("\n").toString() ?: "",
+            workOrderIssueSummary = it.issue_summary?: "",
             workOrderAsset = it.assetable?.name ?: "",
             workOrderProject = it.project_id.toString(),
             workOrderStatus = statusMapping[it.status_id] ?: it.status_id.toString(),

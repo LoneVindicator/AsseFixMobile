@@ -25,6 +25,10 @@ class ItemAdapter(
         val workOrderAsset: TextView = itemView.findViewById(R.id.work_order_asset_content)
         val workOrderAssignedTo: TextView = itemView.findViewById(R.id.work_order_assigned_to_content)
         val workOrderDueDate: TextView = itemView.findViewById(R.id.work_order_due_date_content)
+
+        val workOrderIssueSummary: TextView = itemView.findViewById(R.id.work_order_issue_summary_content)
+        val workOrderEstimatedTime: TextView = itemView.findViewById(R.id.work_order_details_estimated_time)
+        val workOrderProject: TextView = itemView.findViewById(R.id.work_order_project_content)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -49,6 +53,11 @@ class ItemAdapter(
         holder.workOrderAssignedTo.text = item.workOrderAssignedTo
         holder.workOrderDueDate.text = item.workOrderDueDate
 
+        holder.workOrderIssueSummary.text = item.workOrderIssueSummary
+        holder.workOrderProject.text = item.workOrderProject
+        holder.workOrderEstimatedTime.text = item.workOrderEstimatedType
+        
+
         // Set the background drawable based on workOrderPriority
         val priorityMarker = holder.itemView.findViewById<LinearLayout>(R.id.work_order_priority_marker_content)
         val priorityDrawable = getPriorityDrawable(item.workOrderPriority)
@@ -71,8 +80,24 @@ class ItemAdapter(
 
         val toolbar: androidx.appcompat.widget.Toolbar? = (holder.itemView.findViewById(R.id.toolbar) as? androidx.appcompat.widget.Toolbar)
         val toolbarTitle = toolbar?.title?.toString()
+
+        //Pass holder contents to new card details activity
+
         intent.putExtra("cardDetailsFragmentName", toolbarTitle)
+
+        //Pass ancillary Work Order Details to CardDetailsActivity
+
+        intent.putExtra("workOrderIssueSummary", holder.workOrderIssueSummary.text)
         intent.putExtra("workOrderNumber", holder.workOrderNumber.text)
+        intent.putExtra("workOrderAsset", holder.workOrderAsset.text)
+        intent.putExtra("workOrderProject", holder.workOrderProject.text)
+        intent.putExtra("workOrderStatus", holder.workOrderStatus.text)
+        intent.putExtra("workOrderEstimatedTime", holder.workOrderEstimatedTime.text)
+        intent.putExtra("workOrderType", holder.workOrderType.text)
+        intent.putExtra("workOrderPriority", holder.workOrderPriority.text)
+        intent.putExtra("workOrderDueDate", holder.workOrderDueDate.text)
+        intent.putExtra("workOrderAssignedTo", holder.workOrderAssignedTo.text)
+
         context.startActivity(intent)
 
     }
@@ -91,4 +116,12 @@ class ItemAdapter(
 
 
     }
+
+private fun Intent.putExtra(s: String, workOrderIssueSummary: TextView) {
+
+}
+
+private fun Intent.putExtra(s: String, holder: ItemAdapter.ItemViewHolder) {
+
+}
 
