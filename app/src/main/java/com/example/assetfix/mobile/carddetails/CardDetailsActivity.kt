@@ -39,6 +39,10 @@ class CardDetailsActivity : AppCompatActivity() {
         val cardDetailsFragmentName = intent.getStringExtra("cardDetailsFragmentName")
         setSupportActionBar(toolbar)
 
+        if (cardDetailsFragmentName != null) {
+            Log.d("CardDetailsActivity", cardDetailsFragmentName)
+        }
+
 
         val selectedFragment = getCardDetailsFragment()
 
