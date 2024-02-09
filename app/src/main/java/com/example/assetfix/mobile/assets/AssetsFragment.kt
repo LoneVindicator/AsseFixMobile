@@ -91,6 +91,8 @@ class AssetsFragment : Fragment() {
 
         apiService = retrofit.create(ApiService::class.java)
 
+        showLoadingIndicator()
+
         fetchData { assetList ->
             // Use workOrderCardList here
             // This block will be executed when the data is available
@@ -154,6 +156,7 @@ class AssetsFragment : Fragment() {
         } else {
             // If not empty, make the LinearLayout gone
             emptyLayout.visibility = View.GONE
+            hideLoadingIndicator()
         }
     }
 
@@ -210,6 +213,21 @@ class AssetsFragment : Fragment() {
         Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
         // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
     }
+
+    private fun showLoadingIndicator() {
+        // Find the ProgressBar by its ID
+        val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
+        // Show the ProgressBar
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoadingIndicator() {
+        // Find the ProgressBar by its ID
+        val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
+        // Hide the ProgressBar
+        progressBar.visibility = View.GONE
+    }
+
 
     companion object {
         /**
