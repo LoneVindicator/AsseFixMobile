@@ -16,14 +16,15 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/empty_work_order_new_work_order_icon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/bx_notepad"
-                app:tint="@color/textLabelGrey">
+                <ImageView
+                    android:id="@+id/empty_work_order_new_work_order_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/bx_notepad"
+                    app:tint="@color/textLabelGrey">
 
             </ImageView>
 
@@ -33,24 +34,24 @@
                 android:orientation="vertical"
                 android:padding="10sp">
 
-                <TextView
-                    android:id="@+id/empty_work_orders_title_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/empty_work_orders_title"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/empty_work_orders_title_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/empty_work_orders_title"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/empty_work_orders_byline_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/empty_work_orders_byline"
-                    android:textColor="@color/textLabelGrey"
-                    android:textSize="13sp" />
+                    <TextView
+                        android:id="@+id/empty_work_orders_byline_item"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/empty_work_orders_byline"
+                        android:textColor="@color/textLabelGrey"
+                        android:textSize="13sp" />
 
 
             </LinearLayout>
@@ -68,35 +69,51 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/assetFixBlue"
+                android:layout_centerInParent="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/work_order_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/work_order_create_new_work_order_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/blue_rounded_button"
-                android:text="New Work Order"
-                android:textColor="@color/white"
-                android:layout_gravity="end"
-                android:minHeight="0dp"
-                android:minWidth="0dp"
-                android:padding="5dp"
-                android:textSize="10sp"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/work_order_create_new_work_order_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/blue_rounded_button"
+                    android:text="New Work Order"
+                    android:textColor="@color/white"
+                    android:layout_gravity="end"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:padding="5dp"
+                    android:textSize="10sp"/>
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/card_recyclerView"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/card_recyclerView"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         </LinearLayout>
 
