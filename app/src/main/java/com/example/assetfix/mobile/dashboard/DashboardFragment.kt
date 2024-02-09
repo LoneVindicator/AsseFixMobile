@@ -1,10 +1,12 @@
 package com.example.assetfix.mobile.dashboard
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
@@ -56,7 +58,27 @@ class DashboardFragment : Fragment() {
         // Set the layout manager (e.g., LinearLayoutManager)
                 recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        populateDashboard()
+
     }
+
+    private fun populateDashboard() {
+
+        val workOrderCountTextView: TextView = view!!.findViewById(R.id.active_work_orders_content)
+        val activeAssetsCountTextView: TextView = view!!.findViewById(R.id.active_assets_content)
+        val activeUsersCountTextView: TextView = view!!.findViewById(R.id.active_users_content)
+
+
+        val workOrderCount = getOneSpecificData("workOrderCount", defaultValue = "0")
+        val activeAssetsCount = getOneSpecificData("assetsCount", defaultValue = "0")
+        val activeUsersCount = getOneSpecificData("activeUsersCount", defaultValue = "0")
+
+        workOrderCountTextView.text = workOrderCount
+        activeAssetsCountTextView.text = activeAssetsCount
+        activeUsersCountTextView.text = activeUsersCount
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +86,20 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
+
+    // Function to retrieve data from SharedPreferences
+    private fun retrieveData(key: String, defaultValue: String): String {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
+    }
+
+    // Example function to retrieve one specific data
+    private fun getOneSpecificData(key: String, defaultValue: String): String {
+        val specificData = retrieveData(key, defaultValue)
+
+        return specificData
+    }
+
 
 
     companion object {
