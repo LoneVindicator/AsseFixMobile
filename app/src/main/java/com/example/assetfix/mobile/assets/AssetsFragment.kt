@@ -167,7 +167,7 @@ class AssetsFragment : Fragment() {
     }
 
     private fun fetchData(callback: (List<AssetCards>) -> Unit) {
-        val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
+        val accessToken: String = getOneSpecificData("accessToken", defaultValue = "0")
 
         val call = apiService.getData("Bearer $accessToken")
         call.enqueue(object : Callback<AssetList> {
@@ -237,6 +237,18 @@ class AssetsFragment : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putString(key, value)
         editor.apply()
+    }
+
+    private fun retrieveData(key: String, defaultValue: String): String {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
+    }
+
+    // Example function to retrieve one specific data
+    private fun getOneSpecificData(key: String, defaultValue: String): String {
+        val specificData = retrieveData(key, defaultValue)
+
+        return specificData
     }
 
 

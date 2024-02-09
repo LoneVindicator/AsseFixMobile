@@ -23,10 +23,7 @@ import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
 import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -188,7 +185,9 @@ class WorkOrderFragment : Fragment() {
 
 
     private fun fetchData(callback: (List<WorkOrderCards>) -> Unit) {
-        val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
+
+        val accessToken: String = getOneSpecificData("accessToken", defaultValue = "0")
+
 
         val call = apiService.getData("Bearer $accessToken")
         call.enqueue(object : Callback<MaintenanceData> {
@@ -200,7 +199,7 @@ class WorkOrderFragment : Fragment() {
 //                    Log.d("RawResponse", rawJsonResponse ?: "Response body is null")
 
 
-                    logData(data)
+//                    logData(data)
                     val workOrderCardsList = data?.let { mapMaintenanceDataToWorkOrderCards(it) }
                     if (workOrderCardsList != null) {
 
@@ -216,6 +215,14 @@ class WorkOrderFragment : Fragment() {
 
             override fun onFailure(call: Call<MaintenanceData>, t: Throwable) {
                 Log.e("ApiCall", "API call failed", t)
+
+                // Log the raw JSON response if available
+                if (t is HttpException) {
+                    val errorBody = t.response()?.errorBody()?.string()
+                    Log.e("ApiCall", "Raw error response: $errorBody")
+                }
+
+
             }
         })
     }
@@ -223,7 +230,7 @@ class WorkOrderFragment : Fragment() {
 
     private fun logData(data: MaintenanceData?) {
         if (data != null) {
-            // Log the data here
+//             Log the data here
             Log.d("ApiCall", data.toString())
 
             val workOrderCardsList = mapMaintenanceDataToWorkOrderCards(data)
@@ -259,6 +266,18 @@ class WorkOrderFragment : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putString(key, value)
         editor.apply()
+    }
+
+    private fun retrieveData(key: String, defaultValue: String): String {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
+    }
+
+    // Example function to retrieve one specific data
+    private fun getOneSpecificData(key: String, defaultValue: String): String {
+        val specificData = retrieveData(key, defaultValue)
+
+        return specificData
     }
 
     companion object {

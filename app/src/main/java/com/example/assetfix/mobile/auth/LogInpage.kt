@@ -1,5 +1,6 @@
 package com.example.assetfix.mobile.auth
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -69,13 +70,13 @@ class LogInpage : AppCompatActivity() {
 
             //Uncomment when implementing Login
 
-//            validateLogIn()
+            validateLogIn()
 
             //Uncomment to disable login
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }
 
 
@@ -146,6 +147,8 @@ class LogInpage : AppCompatActivity() {
                 val response = apiService.authenticateUser(requestBody)
                 Log.d("APIBS", response.toString())
 
+                saveData("accessToken", response.access_token)
+
                 // Handle the authentication response
                 handleAuthenticationResponse(response)
             } catch (e: Exception) {
@@ -177,6 +180,13 @@ class LogInpage : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }
+    }
+
+    private fun saveData(key: String, value: String) {
+        val sharedPreferences = getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(key, value)
+        editor.apply()
     }
 
     data class AuthenticationRequestBody(

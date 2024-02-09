@@ -25,10 +25,10 @@ data class MaintenanceData(
 )
 
 data class MaintenanceItem(
-    val id: Int,
+    val id: String?,
     val issue_summary: String?,
     val assetable: Assetable,
-    val project_id: Int,
+    val project_id: String?,
     val status_id: Int,
     val maintenance_type_id: Int,
     val priority: String,
@@ -48,15 +48,15 @@ data class Assetable(
     val country: String,
     val latitude: String,
     val longitude: String,
-    val parent_location_id: Int,
-    val uuid: Int,
-    val organization_id: Int,
+    val parent_location_id: String?,
+    val uuid: String?,
+    val organization_id: String?,
     val is_active: Boolean,
 
     )
 
 data class Requestor(
-    val id: Int,
+    val id: String?,
     val name: String,
     val email: String,
     val phone_number: String,
