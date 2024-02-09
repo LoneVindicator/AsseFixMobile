@@ -116,7 +116,7 @@ class AssetsFragment : Fragment() {
     }
 
     private fun initializeRecyclerView(assetList: List<AssetCards>) {
-        
+
         // Check if view is null
         if (view == null) {
             // Handle the case where view is null, maybe log an error or return early
