@@ -116,7 +116,22 @@ class AssetsFragment : Fragment() {
     }
 
     private fun initializeRecyclerView(assetList: List<AssetCards>) {
-        recyclerView = view?.findViewById(com.example.assetfix.R.id.card_recyclerView)!!
+        
+        // Check if view is null
+        if (view == null) {
+            // Handle the case where view is null, maybe log an error or return early
+            return
+        }
+
+        // Find the RecyclerView by its ID
+        recyclerView = view!!.findViewById(com.example.assetfix.R.id.card_recyclerView)
+
+        // Check if recyclerView is null
+        if (recyclerView == null) {
+            // Handle the case where recyclerView is null, maybe log an error or return early
+            return
+        }
+
 
         // Initialize your data list (replace with your actual data)
         val itemList = assetList
