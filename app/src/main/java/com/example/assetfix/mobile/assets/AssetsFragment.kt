@@ -2,6 +2,7 @@ package com.example.assetfix.mobile.assets
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
 import com.example.assetfix.mobile.assets.adapter.ItemAdapter
 import com.example.assetfix.mobile.assets.data.Datasource
+import com.example.assetfix.mobile.assets.model.AssetCards
+import com.example.assetfix.mobile.assets.model.AssetList
+import com.example.assetfix.mobile.assets.model.mapAssetListToAssetCards
+import com.example.assetfix.mobile.workOrder.WorkOrderFragment
+import com.example.assetfix.mobile.workOrder.model.MaintenanceData
+import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
+import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Header
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +48,9 @@ class AssetsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ItemAdapter // replace MyAdapter with your actual adapter class
 
+    private val baseUrl = "https://test.assetfix.co/api/"
+    private lateinit var apiService: ApiService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -47,6 +66,14 @@ class AssetsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_assets, container, false)
 
+        return view
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         // Find the button by ID
         val openNewActivityButton: ImageView? = view?.findViewById(R.id.empty_assets_icon)
 
@@ -57,42 +84,22 @@ class AssetsFragment : Fragment() {
             openNewActivity()
         }
 
+        val retrofit = Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        apiService = retrofit.create(ApiService::class.java)
+
+        fetchData { assetList ->
+            // Use workOrderCardList here
+            // This block will be executed when the data is available
+            initializeRecyclerView(assetList)
 
 
-        return view
-
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        recyclerView = view.findViewById(com.example.assetfix.R.id.card_recyclerView)
-
-        // Initialize your data list (replace with your actual data)
-        val itemList = Datasource().loadAssetCards()
-
-        // Create an instance of your adapter
-        adapter = ItemAdapter(this, itemList)
-
-        // Set the adapter to the RecyclerView
-        recyclerView.adapter = adapter
-
-        // Set the layout manager (e.g., LinearLayoutManager)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        val emptyLayout: LinearLayout = view.findViewById(com.example.assetfix.R.id.empty_assets_layout)
-
-        // Check if the RecyclerView data is empty or null
-
-        // Check if the RecyclerView data is empty or null
-        if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
-            // If empty, make the LinearLayout visible
-            emptyLayout.visibility = View.VISIBLE
-        } else {
-            // If not empty, make the LinearLayout gone
-            emptyLayout.visibility = View.GONE
         }
+
+
     }
 
     // Method to open the new activity
@@ -106,6 +113,87 @@ class AssetsFragment : Fragment() {
         intent.putExtra("cardDetailsFragmentName", toolbarTitle)
         startActivity(intent)
 
+    }
+
+    private fun initializeRecyclerView(assetList: List<AssetCards>) {
+        recyclerView = view?.findViewById(com.example.assetfix.R.id.card_recyclerView)!!
+
+        // Initialize your data list (replace with your actual data)
+        val itemList = assetList
+
+        // Create an instance of your adapter
+        adapter = ItemAdapter(this, itemList)
+
+        // Set the adapter to the RecyclerView
+        recyclerView.adapter = adapter
+
+        // Set the layout manager (e.g., LinearLayoutManager)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val emptyLayout: LinearLayout = view!!.findViewById(R.id.empty_assets_layout)
+
+        // Check if the RecyclerView data is empty or null
+        if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
+            // If empty, make the LinearLayout visible
+            emptyLayout.visibility = View.VISIBLE
+        } else {
+            // If not empty, make the LinearLayout gone
+            emptyLayout.visibility = View.GONE
+        }
+    }
+
+    interface ApiService {
+        @GET("assets")
+        fun getData(@Header("Authorization") token: String): Call<AssetList>
+    }
+
+    private fun fetchData(callback: (List<AssetCards>) -> Unit) {
+        val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
+
+        val call = apiService.getData("Bearer $accessToken")
+        call.enqueue(object : Callback<AssetList> {
+            override fun onResponse(call: Call<AssetList>, response: Response<AssetList>) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+
+                    val rawJsonResponse = response.body()?.let { Gson().toJson(it) }
+                    Log.d("RawResponse", rawJsonResponse ?: "Response body is null")
+
+
+                    logData(data)
+                    val assetCardsList = data?.let { mapAssetListToAssetCards(it) }
+                    if (assetCardsList != null) {
+                        callback(assetCardsList)
+                    }
+                } else {
+                    handleErrorResponse(response)
+                }
+            }
+
+            override fun onFailure(call: Call<AssetList>, t: Throwable) {
+                Log.e("ApiCall", "API call failed", t)
+            }
+        })
+    }
+
+
+    private fun logData(data: AssetList?) {
+        if (data != null) {
+            // Log the data here
+            Log.d("ApiCall", data.toString())
+
+            val assetCardsList = mapAssetListToAssetCards(data)
+
+            Log.d("ApiCall", assetCardsList.toString())
+        } else {
+            Log.w("ApiCall", "Data is null")
+        }
+    }
+
+    private fun handleErrorResponse(response: Response<AssetList>) {
+        // Log the error details
+        Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
+        // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
     }
 
     companion object {

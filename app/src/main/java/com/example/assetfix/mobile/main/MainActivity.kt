@@ -15,6 +15,7 @@ import com.example.assetfix.mobile.inspectionsandsupervision.InspectionsAndSuper
 import com.example.assetfix.mobile.partsandsupplies.PartsAndSuppliesFragment
 import com.example.assetfix.mobile.peopleandteams.PeopleAndTeamsFragment
 import com.example.assetfix.mobile.profile.ProfileFragment
+import com.example.assetfix.mobile.qrscanner.QrScannerFragment
 import com.example.assetfix.mobile.vendorsandcustomers.VendorsAndCustomersFragment
 import com.example.assetfix.mobile.workOrder.WorkOrderFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -121,7 +122,8 @@ class MainActivity : AppCompatActivity() {
 
         // Now you can interact with the FloatingActionButton
         qrScanBtn.setOnClickListener {
-            Toast.makeText(this, "QR Button Clicked", Toast.LENGTH_SHORT).show()
+            toolbarTitle = "Scan QR Code"
+            replaceFragment(QrScannerFragment(), toolbarTitle)
         }
 
 
