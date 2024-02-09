@@ -1,5 +1,6 @@
 package com.example.assetfix.mobile.assets
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -181,6 +182,9 @@ class AssetsFragment : Fragment() {
                     logData(data)
                     val assetCardsList = data?.let { mapAssetListToAssetCards(it) }
                     if (assetCardsList != null) {
+
+                        val assetsCount = assetCardsList.size
+                        saveData("assetsCount", assetsCount.toString())
                         callback(assetCardsList)
                     }
                 } else {
@@ -226,6 +230,13 @@ class AssetsFragment : Fragment() {
         val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
         // Hide the ProgressBar
         progressBar.visibility = View.GONE
+    }
+
+    private fun saveData(key: String, value: String) {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(key, value)
+        editor.apply()
     }
 
 

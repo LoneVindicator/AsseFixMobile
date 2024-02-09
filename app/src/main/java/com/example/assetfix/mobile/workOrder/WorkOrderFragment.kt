@@ -1,5 +1,6 @@
 package com.example.assetfix.mobile.workOrder
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -202,6 +203,10 @@ class WorkOrderFragment : Fragment() {
                     logData(data)
                     val workOrderCardsList = data?.let { mapMaintenanceDataToWorkOrderCards(it) }
                     if (workOrderCardsList != null) {
+
+                        val workOrderCount = workOrderCardsList.size
+                        saveData("workOrderCount", workOrderCount.toString())
+
                         callback(workOrderCardsList)
                     }
                 } else {
@@ -247,6 +252,13 @@ class WorkOrderFragment : Fragment() {
         val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
         // Hide the ProgressBar
         progressBar.visibility = View.GONE
+    }
+
+    private fun saveData(key: String, value: String) {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(key, value)
+        editor.apply()
     }
 
     companion object {
