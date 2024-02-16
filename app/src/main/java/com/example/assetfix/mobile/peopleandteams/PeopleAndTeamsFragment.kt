@@ -1,16 +1,35 @@
 package com.example.assetfix.mobile.peopleandteams
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.Toolbar
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assetfix.R
-import com.example.assetfix.mobile.carddetails.CardDetailsActivity
+import com.example.assetfix.mobile.peopleandteams.adapter.ItemAdapter
+import com.example.assetfix.mobile.assets.data.Datasource
+import com.example.assetfix.mobile.peopleandteams.model.PeopleCards
+import com.example.assetfix.mobile.peopleandteams.model.PeopleList
+import com.example.assetfix.mobile.peopleandteams.model.mapPeopleListToPeopleCards
+import com.example.assetfix.mobile.peopleandteams.PeopleAndTeamsFragment
+import com.example.assetfix.mobile.workOrder.model.MaintenanceData
+import com.example.assetfix.mobile.workOrder.model.WorkOrderCards
+import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Header
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +46,12 @@ class PeopleAndTeamsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: ItemAdapter // replace MyAdapter with your actual adapter class
+
+    private val baseUrl = "https://test.assetfix.co/api/"
+    private lateinit var apiService: ApiService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -40,10 +65,18 @@ class PeopleAndTeamsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_people_and_teams, container, false)
+        val view = inflater.inflate(R.layout.fragment_assets, container, false)
+
+        return view
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // Find the button by ID
-        val openNewActivityButton: ImageView? = view?.findViewById(R.id.empty_peopleandteams_icon)
+        val openNewActivityButton: ImageView? = view?.findViewById(R.id.empty_assets_icon)
 
         // Use safe call operator ?. to avoid null pointer exception
         openNewActivityButton?.setOnClickListener {
@@ -52,9 +85,22 @@ class PeopleAndTeamsFragment : Fragment() {
             openNewActivity()
         }
 
+        val retrofit = Retrofit.Builder()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        apiService = retrofit.create(ApiService::class.java)
+
+        showLoadingIndicator()
+
+        fetchData { peopleList ->
+            // Use workOrderCardList here
+            // This block will be executed when the data is available
+            initializeRecyclerView(peopleList)
 
 
-        return view
+        }
 
 
     }
@@ -71,6 +117,142 @@ class PeopleAndTeamsFragment : Fragment() {
         startActivity(intent)
 
     }
+
+    private fun initializeRecyclerView(peopleList: List<PeopleCards>) {
+
+        // Check if view is null
+        if (view == null) {
+            // Handle the case where view is null, maybe log an error or return early
+            return
+        }
+
+        // Find the RecyclerView by its ID
+        recyclerView = view!!.findViewById(com.example.assetfix.R.id.card_recyclerView)
+
+        // Check if recyclerView is null
+        if (recyclerView == null) {
+            // Handle the case where recyclerView is null, maybe log an error or return early
+            return
+        }
+
+
+        // Initialize your data list (replace with your actual data) (Comment & Uncomment to Switch Between Actual Data & Test Data)
+
+//        val itemList = peopleList
+        val itemList = com.example.assetfix.mobile.peopleandteams.data.Datasource().loadPeopleCards()
+
+        // Create an instance of your adapter
+        adapter = ItemAdapter(this, itemList)
+
+        // Set the adapter to the RecyclerView
+        recyclerView.adapter = adapter
+
+        // Set the layout manager (e.g., LinearLayoutManager)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val emptyLayout: LinearLayout = view!!.findViewById(R.id.empty_assets_layout)
+
+        // Check if the RecyclerView data is empty or null
+        if (recyclerView.adapter == null || recyclerView.adapter!!.itemCount == 0) {
+            // If empty, make the LinearLayout visible
+            emptyLayout.visibility = View.VISIBLE
+        } else {
+            // If not empty, make the LinearLayout gone
+            emptyLayout.visibility = View.GONE
+            hideLoadingIndicator()
+        }
+    }
+
+    interface ApiService {
+        @GET("work-orders")
+        fun getData(@Header("Authorization") token: String): Call<PeopleList>
+    }
+
+    private fun fetchData(callback: (List<PeopleCards>) -> Unit) {
+        val accessToken: String = getOneSpecificData("accessToken", defaultValue = "0")
+
+        val call = apiService.getData("Bearer $accessToken")
+        call.enqueue(object : Callback<PeopleList> {
+            override fun onResponse(call: Call<PeopleList>, response: Response<PeopleList>) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+
+                    val rawJsonResponse = response.body()?.let { Gson().toJson(it) }
+                    Log.d("RawResponse", rawJsonResponse ?: "Response body is null")
+
+
+                    logData(data)
+                    val peopleList = data?.let { mapPeopleListToPeopleCards(it) }
+                    if (peopleList != null) {
+
+                        val peopleCount = peopleList.size
+                        saveData("peopleCount", peopleCount.toString())
+                        callback(peopleList)
+                    }
+                } else {
+                    handleErrorResponse(response)
+                }
+            }
+
+            override fun onFailure(call: Call<PeopleList>, t: Throwable) {
+                Log.e("ApiCall", "API call failed", t)
+            }
+        })
+    }
+
+
+    private fun logData(data: PeopleList?) {
+        if (data != null) {
+            // Log the data here
+            Log.d("ApiCall", data.toString())
+
+            val peopleList = mapPeopleListToPeopleCards(data)
+
+            Log.d("ApiCall", peopleList.toString())
+        } else {
+            Log.w("ApiCall", "Data is null")
+        }
+    }
+
+    private fun handleErrorResponse(response: Response<PeopleList>) {
+        // Log the error details
+        Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
+        // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
+    }
+
+    private fun showLoadingIndicator() {
+        // Find the ProgressBar by its ID
+        val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
+        // Show the ProgressBar
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideLoadingIndicator() {
+        // Find the ProgressBar by its ID
+        val progressBar: LinearLayout = view!!.findViewById(R.id.loading_layout)
+        // Hide the ProgressBar
+        progressBar.visibility = View.GONE
+    }
+
+    private fun saveData(key: String, value: String) {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString(key, value)
+        editor.apply()
+    }
+
+    private fun retrieveData(key: String, defaultValue: String): String {
+        val sharedPreferences = requireActivity().getSharedPreferences("dashboardContent", Context.MODE_PRIVATE)
+        return sharedPreferences.getString(key, defaultValue) ?: defaultValue
+    }
+
+    // Example function to retrieve one specific data
+    private fun getOneSpecificData(key: String, defaultValue: String): String {
+        val specificData = retrieveData(key, defaultValue)
+
+        return specificData
+    }
+
 
     companion object {
         /**
