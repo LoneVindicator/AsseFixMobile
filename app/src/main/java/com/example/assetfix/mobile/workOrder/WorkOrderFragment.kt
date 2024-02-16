@@ -134,8 +134,10 @@ class WorkOrderFragment : Fragment() {
             return
         }
 
-        // Initialize your data list (replace with your actual data)
-        val itemList = workOrderCardList
+        // Initialize your data list (replace with your actual data) (Comment & Uncomment to Switch Between Actual Data & Test Data)
+
+//        val itemList = workOrderCardList
+        val itemList = Datasource().loadWorkOrderCards()
 
         // Create an instance of your adapter
         adapter = ItemAdapter(this, itemList)

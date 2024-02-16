@@ -1,11 +1,27 @@
 package com.example.assetfix.mobile.peopleandteams
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.assetfix.R
+import com.example.assetfix.mobile.workOrder.data.Datasource
+import com.example.assetfix.mobile.workOrder.model.MaintenanceData
+import com.example.assetfix.mobile.workOrder.model.MaintenanceItem
+import com.example.assetfix.mobile.workOrder.model.mapMaintenanceDataToWorkOrderCards
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -14,13 +30,22 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [PeopleAndTeamsDetailsFragment.newInstance] factory method to
+ * Use the [WorkOrderDetailsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
 class PeopleAndTeamsDetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private val baseUrl = "https://test.assetfix.co/api/"
+
+    private lateinit var datasource: Datasource
+
+    private val apiService: ApiService = Retrofit.Builder()
+        .baseUrl(baseUrl) // Replace with your actual base URL
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(ApiService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +61,124 @@ class PeopleAndTeamsDetailsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_people_and_teams_details, container, false)
+
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        datasource = Datasource()
+
+
+        //TextView Declarations
+
+        val nameTextView = view.findViewById<TextView>(R.id.peopleandteams_details_name)
+        val emailTextView = view.findViewById<TextView>(R.id.peopleandteams_details_email)
+        val roleTextView = view.findViewById<TextView>(R.id.peopleandteams_details_role)
+        val phoneNumberTextView = view.findViewById<TextView>(R.id.peopleandteams_details_phone_number)
+        val emailVerifiedAtTextView = view.findViewById<TextView>(R.id.peopleandteams_details_email_verified_at)
+
+        // Example work order number
+        val peopleAndTeamsName  = requireActivity().intent.getStringExtra("peopleAndTeamsName")
+        val peopleAndTeamsEmail  = requireActivity().intent.getStringExtra("peopleAndTeamsEmail")
+        val peopleAndTeamsPhoneNumber  = requireActivity().intent.getStringExtra("peopleAndTeamsPhoneNumber")
+        val peopleAndTeamsRole  = requireActivity().intent.getStringExtra("peopleAndTeamsRole")
+        val peopleAndTeamsEmailVerifiedAt  = requireActivity().intent.getStringExtra("peopleAndTeamsEmailVerifiedAt")
+
+        if (peopleAndTeamsName != null) {
+            Log.d("hasItPassed", peopleAndTeamsName)
+        }
+
+        changeActivityTitle("People & Teams")
+
+        nameTextView.text = peopleAndTeamsName ?: "--"
+        emailTextView.text = peopleAndTeamsEmail ?: "--"
+        roleTextView.text = peopleAndTeamsRole ?: "--"
+        phoneNumberTextView.text = peopleAndTeamsPhoneNumber ?: "--"
+        emailVerifiedAtTextView.text = peopleAndTeamsEmailVerifiedAt ?: "--"
+
+//        tasksTextView.text = specificWorkOrder.workOrderTasks ?: ""
+//        filesTextView.text = specificWorkOrder.workOrderFiles ?: ""
+
+
+
+//        fetchData(workOrderNumberToRetrieve) { workOrderItem ->
+//            // Use workOrderItem here
+//            // This block will be executed when the data is available
+//
+//            if (workOrderItem != null) {
+//                // Do something with the MaintenanceItem
+//                // For example, map it to WorkOrderCards and use it
+////                val workOrderCards = mapMaintenanceDataToWorkOrderCards(workOrderItem)
+//                // Now you can use workOrderCards
+//            } else {
+//                // Handle the case where workOrderItem is null (error or no data)
+//            }
+//        }
+
+
+
+    }
+
+    private fun fetchData(workOrderNumber: String, callback: (MaintenanceItem?) -> Unit) {
+        val accessToken = "30|028dowtjgcLF9WFHbZy84OtpsANgw8HF8UNptMli"
+
+        val call = apiService.getData(workOrderNumber, "Bearer $accessToken")
+        call.enqueue(object : Callback<MaintenanceItem> { // Ensure this line is using MaintenanceItem
+            override fun onResponse(call: Call<MaintenanceItem>, response: Response<MaintenanceItem>) {
+
+
+                if (response.isSuccessful) {
+                    val maintenanceItem: MaintenanceItem? = response.body()
+                    logData(maintenanceItem)
+                    callback(maintenanceItem)
+                } else {
+                    handleErrorResponse(response)
+                }
+            }
+
+            override fun onFailure(call: Call<MaintenanceItem>, t: Throwable) {
+                Log.e("ApiCall", "API call failed", t)
+            }
+        })
+    }
+
+    interface ApiService {
+        // Define the endpoint for fetching a single work order by work order number
+        @GET("work-orders")
+        fun getData(
+            @Query("id") workOrderNumber: String,
+            @Header("Authorization") token: String
+        ): Call<MaintenanceItem> // Ensure this line is using MaintenanceItem
+    }
+
+    private fun logData(data: MaintenanceItem?) {
+        if (data != null) {
+            // Log the data here
+            Log.d("ApiCall", data.toString())
+
+//            val workOrderCardsList = mapMaintenanceDataToWorkOrderCards(data)
+
+//            Log.d("ApiCall", workOrderCardsList.toString())
+        } else {
+            Log.w("ApiCall", "Data is null")
+        }
+    }
+
+    private fun handleErrorResponse(response: Response<MaintenanceItem>) {
+        // Log the error details
+        Log.e("ApiCall", "Error: ${response.code()}, ${response.message()}")
+        // You can also log the error body if needed: Log.e("ApiCall", "Error Body: ${response.errorBody()?.string()}")
+    }
+
+    private fun changeActivityTitle(newTitle: String) {
+
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.title = newTitle
+
+    }
+
+
 
     companion object {
         /**
@@ -45,7 +187,7 @@ class PeopleAndTeamsDetailsFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment PeopleAndTeamsDetailsFragment.
+         * @return A new instance of fragment WorkOrderDetailsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
