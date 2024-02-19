@@ -4,64 +4,105 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".mobile.workOrder.PartsAndSuppliesFragment"
+    tools:context=".mobile.partsandsupplies.PartsAndSuppliesFragment"
     android:padding="16dp"
     android:orientation="vertical"
     android:layout_marginBottom="100dp" >
 
-    <RelativeLayout
+
+    <LinearLayout
+        android:id="@+id/empty_partsandsupplies_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/empty_partsandsupplies_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/bx_notepad"
+            app:tint="@color/textLabelGrey">
+
+        </ImageView>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10sp">
 
-            <ImageView
-                android:id="@+id/empty_partsandsupplies_icon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/bx_wrench"
-                app:tint="@color/textLabelGrey">
-
-            </ImageView>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/empty_work_orders_title_item"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10sp">
+                android:gravity="center"
+                android:text="@string/empty_partsandsupplies_title"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/empty_work_orders_title_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/empty_partsandsupplies_title"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/empty_work_orders_byline_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/empty_partsandsupplies_byline"
+                android:textColor="@color/textLabelGrey"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:id="@+id/empty_work_orders_byline_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/empty_partsandsupplies_byline"
-                    android:textColor="@color/textLabelGrey"
-                    android:textSize="13sp" />
-
-
-            </LinearLayout>
 
         </LinearLayout>
 
-    </RelativeLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/empty_work_order_create_new_work_order_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:drawableLeft="@drawable/bx_bell"
+            android:gravity="center"
+            android:text="New "
+            android:textColor="@color/assetFixBlue" />
 
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/assetFixBlue"
+            android:layout_centerInParent="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/partsandsupplies_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/card_recyclerView"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </LinearLayout>
 
 </LinearLayout>
 

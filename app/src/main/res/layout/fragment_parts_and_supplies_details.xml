@@ -46,6 +46,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_name_content"
@@ -79,6 +80,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_location"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_location_content"
@@ -112,6 +114,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_aisle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_aisle_content"
@@ -145,6 +148,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_row"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_row_content"
@@ -178,6 +182,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_bin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_bin_content"
@@ -211,6 +216,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_make"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_make_content"
@@ -244,6 +250,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_model"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_model_content"
@@ -277,6 +284,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_brand"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_brand_content"
@@ -305,14 +313,15 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/partsandsupplies_details_bar_code_title"
+                    android:text="@string/partsandsupplies_details_bar_code_content"
                     android:paddingLeft="16sp"
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_barcode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/partsandsupplies_details_bar_code_content"
+                    android:text="@string/partsandsupplies_details_bar_code_title"
                     android:layout_marginTop="1dp"
                     android:layout_marginBottom="1dp"
                     android:paddingLeft="16sp"
@@ -343,6 +352,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_additional_parts"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/partsandsupplies_details_additional_parts_content"
@@ -388,6 +398,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_cost"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/asset_details_cost_content"
@@ -421,6 +432,7 @@
                     android:paddingRight="16sp"/>
 
                 <TextView
+                    android:id="@+id/partsandsupplies_details_quantity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@string/asset_details_quantity_content"
