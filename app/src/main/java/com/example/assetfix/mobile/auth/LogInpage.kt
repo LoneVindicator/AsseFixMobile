@@ -70,13 +70,13 @@ class LogInpage : AppCompatActivity() {
 
             //Uncomment when implementing Login
 
-//            validateLogIn()
+            validateLogIn()
 
             //Uncomment to disable login
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
+//            val intent = Intent(this, MainActivity::class.java)
+//            startActivity(intent)
+//            overridePendingTransition(R.anim.slide_to_the_right, R.anim.slide_to_the_left)
         }
 
 

@@ -10,8 +10,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:paddingBottom="100dp">
+        android:layout_height="match_parent">
 
 
         <LinearLayout
@@ -223,6 +222,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/card_recyclerView"
                     android:layout_marginTop="20dp"
+                    android:paddingBottom="150dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"
